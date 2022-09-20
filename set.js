@@ -6,11 +6,14 @@
 creator = 'Danzz Coding'
 
 // Random Key
-randomapikeys = ['4786c','c6a0f1','9de9c','67ea6','a4282','c494','323c9','3hp7o2','4ib0j','qhbpk','qwrts','b789c','b690p1','u8e9c','k7ya6','a42h2','c694','32bc9','3hpho2','pib0j','qpbpk','hurts']
+randomapikeys = ["9286c1a775","9267ic6a0f1","927j59de9c","921n567ea6","921h5a4282","925n2c494","928b0323c9","927b0k3hp7o2","925b04ib0j","023l1qhbpk","92b1a0h7ts","92a70b789c","9291a7bk0p1","92a7o8pe9c","92y1a7l0a6","9221a7i9h2","921a7k3n94","92a0kk2bc9","921a7l9pho2","92a2n1kb0j","92b0a75k6f","92u1a7pr8s"];
 const randomkeys = randomapikeys[Math.floor(Math.random() * (randomapikeys.length))]
 
 // List Key
-listkey = ["danzz","4786c","c6a0f1","9de9c","67ea6","a4282","c494","323c9","3hp7o2","4ib0j","qhbpk","qwrts","b789c","b690p1","u8e9c","k7ya6","a42h2","c694","32bc9","3hpho2","pib0j","qpbpk","hurts"];
+listkey = ["danzz","9286c1a775","9267ic6a0f1","927j59de9c","921n567ea6","921h5a4282","925n2c494","928b0323c9","927b0k3hp7o2","925b04ib0j","023l1qhbpk","92b1a0h7ts","92a70b789c","9291a7bk0p1","92a7o8pe9c","92y1a7l0a6","9221a7i9h2","921a7k3n94","92a0kk2bc9","921a7l9pho2","92a2n1kb0j","92b0a75k6f","92u1a7pr8s"];
+
+// List Key Prem
+listkeyprem = ["danzz"];
 
 // Api Cutty
 apicuttly = ['2038c1a7754b408aa8f9055282638c00e668e','4786cc6a0f19de9c67ea6a4282c494323c932','89d73b3a07209177d0251e30d49d66bd669ac','e841147455d0fdfbf50f74aefe63b6728adc0','27f3aa3f45cb4460bcbac69b782ca470a4570','31a8df09d5a9d8d009790df0b5642e3d76919','09b4e764ff07b10eac1682e71aaf95a78f358','75fe576ce040b619176af22f5a718b2f574f5','e24ee36f9c1519c0a779667a5182a31fb7ccf','903869065d29e23455ddca922071f4bbeb133']
@@ -48,6 +51,16 @@ loghandler = {
     	status: false,
     	code: 403,
     	message: 'Error, Invlid Text 2',
+    	maintanied_by: 'Danzz Coding'
+    },
+    notnum: {
+    	status: false,
+    	message: 'Enter Num',
+    	maintanied_by: 'Danzz Coding'
+    },
+    notpage: {
+    	status: false,
+    	message: 'Enter Page',
     	maintanied_by: 'Danzz Coding'
     },
     notmoji1: {
