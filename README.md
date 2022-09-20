@@ -22,6 +22,10 @@
 
 ## TUTORIALS
 
+<a href="https://youtu.be/ZQE_C-TONAg"><img src="https://img.youtube.com/vi/ZQE_C-TONAg/sddefault.jpg" alt="">
+ [`Tutorial In Youtube`](https://youtu.be/ZQE_C-TONAg)<br>
+
+
 Forks
  [`Repo`](https://github.com/Danzzxcodes/danzz-api/fork)<br>
 
