@@ -20,6 +20,9 @@
 <a href="https://github.com/Danzzxcodes/danzz-api/graphs/commit-activity"><img height="20" src="https://img.shields.io/badge/Maintained-No-red.svg"></a>&nbsp;&nbsp;
 </p>
 
+## EXAMPLE
+[`Rest Api`](https://danzz-api.herokuapp.com)<br>
+
 ## TUTORIALS
 
 <a href="https://youtu.be/ZQE_C-TONAg"><img src="https://img.youtube.com/vi/ZQE_C-TONAg/sddefault.jpg" alt="">
