@@ -54,8 +54,18 @@ File Setting [`set.js`](https://github.com/Danzzxcodes/danzz-api/edit/main/set.j
 | Information  |✔️|
 | Tools  |✔️|
 
-## ``Created By``
+## Created By
 
 <img src="https://avatars.githubusercontent.com/Danzzxcodes" width="200" height="200">
 
 [`Danzz Coding`](https://github.com/Danzzxcodes)<br>
+
+## My Sosmed
+
+[`Instagram`](https://instagram.com/ramdani_real01)<br>
+[`Youtube`](https://youtube.com/c/DanzzCoding)<br>
+
+## Contact
+[`WhatsApp`](https://wa.me/6288296339947)<br>
+[`Email`](mailto:danzzcoding@gmail.com)<br>
+[`My Rest Api`](https://danzz-api.herokuapp.com)<br>
