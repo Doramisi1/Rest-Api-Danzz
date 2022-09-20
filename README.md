@@ -30,7 +30,7 @@ DEPLOY TO HEROKU
 [![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/)
 
 * ## SETTING 
-File Setting [`set.js`](https://github.com/Danzzxcodes/danzz-api/blob/main/set.js)<br>
+File Setting [`set.js`](https://github.com/Danzzxcodes/danzz-api/edit/main/set.js)<br>
 
 * ## FEATURE LIST
 
