@@ -734,6 +734,119 @@ danzz.pinterest(query)
 }
 })
 
+router.get('/search/shoppe', async (req, res, next) => {
+       	var query = req.query.query
+       	var apikey = req.query.apikey
+       
+       	if (!query) return res.json(loghandler.notquery)
+       	if (!apikey) return res.json(loghandler.notapikey)           
+           if(listkey.includes(apikey)){
+           	
+         fetch(encodeURI(`https://api-yogipw.herokuapp.com/api/search/shoppe?query=${query}`))
+        .then(response => response.json())
+        .then(data => {
+        var result = data;
+             res.json({
+             	status: true,
+             	creator: `${creator}`,
+                 result: result
+             })
+         })
+         .catch(e => {
+         	console.log(e);
+         	res.sendFile(__path + '/views/error.html')
+})
+} else {
+  res.json(loghandler.notapikey)
+}
+})
+
+router.get('/search/gplaystore', async (req, res, next) => {
+       	var query = req.query.query
+       	var num = req.query.num
+       	var apikey = req.query.apikey
+       
+       	if (!query) return res.json(loghandler.notquery)
+       	if (!num) return res.json(loghandler.notnum)
+       	if (!apikey) return res.json(loghandler.notapikey)           
+           if(listkey.includes(apikey)){
+           	
+         fetch(encodeURI(`https://api-yogipw.herokuapp.com/api/search/gplaystore?query=${query}&num=${num}`))
+        .then(response => response.json())
+        .then(data => {
+        var result = data;
+             res.json({
+             	status: true,
+             	creator: `${creator}`,
+                 result: result
+             })
+         })
+         .catch(e => {
+         	console.log(e);
+         	res.sendFile(__path + '/views/error.html')
+})
+} else {
+  res.json(loghandler.notapikey)
+}
+})
+
+router.get('/search/appstore', async (req, res, next) => {
+       	var query = req.query.query
+       	var num = req.query.num
+       	var page = req.query.page
+       	var apikey = req.query.apikey
+       
+       	if (!query) return res.json(loghandler.notquery)
+       	if (!num) return res.json(loghandler.notnum)
+       	if (!page) return res.json(loghandler.notpage)
+       	if (!apikey) return res.json(loghandler.notapikey)           
+           if(listkey.includes(apikey)){
+           	
+         fetch(encodeURI(`https://api-yogipw.herokuapp.com/api/search/appstore?query=${query}&num=${num}&page=${page}`))
+        .then(response => response.json())
+        .then(data => {
+        var result = data;
+             res.json({
+             	status: true,
+             	creator: `${creator}`,
+                 result: result
+             })
+         })
+         .catch(e => {
+         	console.log(e);
+         	res.sendFile(__path + '/views/error.html')
+})
+} else {
+  res.json(loghandler.notapikey)
+}
+})
+
+router.get('/search/gsmarena', async (req, res, next) => {
+       	var query = req.query.query
+       	var apikey = req.query.apikey
+       
+       	if (!query) return res.json(loghandler.notquery)
+       	if (!apikey) return res.json(loghandler.notapikey)           
+           if(listkey.includes(apikey)){
+           	
+         fetch(encodeURI(`https://api-yogipw.herokuapp.com/api/search/gsmarena?query=${query}`))
+        .then(response => response.json())
+        .then(data => {
+        var result = data;
+             res.json({
+             	status: true,
+             	creator: `${creator}`,
+                 result: result
+             })
+         })
+         .catch(e => {
+         	console.log(e);
+         	res.sendFile(__path + '/views/error.html')
+})
+} else {
+  res.json(loghandler.notapikey)
+}
+})
 
 router.get('/search/wallpaper', async (req, res, next) => {
 	var query = req.query.query
@@ -816,12 +929,14 @@ function logResults(error, results) {
 })
 
 // Film
-router.get('/film/search', async (req, res, next) => {
-           var apikey = req.query.apikey
-       	var film = req.query.film
-       	if (!apikey) return res.json(loghandler.notapikey)
-           if (!film) return res.json(loghandler.nottext)
+router.get('/film/search', async (req, res, next) => {           
+       	var query = req.query.query
+       	var apikey = req.query.apikey
+       	
+       	if (!query) return res.json(loghandler.notquery)
+       	if (!apikey) return res.json(loghandler.notapikey)           
            if(listkey.includes(apikey)){
+           	
          fetch(encodeURI(`https://lk21-api-zahirr.herokuapp.com/search?query=${film}`))
         .then(response => response.json())
         .then(data => {
@@ -840,12 +955,15 @@ router.get('/film/search', async (req, res, next) => {
   res.json(loghandler.notapikey)
 }
 })
+
 router.get('/film/play', async (req, res, next) => {
-           var apikey = req.query.apikey
-       	var film = req.query.film
-       	if (!apikey) return res.json(loghandler.notapikey)   
-           if (!film) return res.json(loghandler.nottext)
+           var query = req.query.query
+       	var apikey = req.query.apikey
+       	
+       	if (!query) return res.json(loghandler.notquery)
+       	if (!apikey) return res.json(loghandler.notapikey)           
            if(listkey.includes(apikey)){
+           	
          fetch(encodeURI(`https://filmapik-api-zahirr.herokuapp.com/play?id=${film}`))
         .then(response => response.json())
         .then(data => {
@@ -3560,5 +3678,20 @@ router.get('/tools/ssweb', async (req, res, next) => {
 }
 })
 
-// 
+router.get('/tools/fakeaddress', async (req, res, next) => {
+	var apikey = req.query.apikey
+	if (!apikey) return res.json(loghandler.notapikey)
+	if(listkey.includes(apikey)){
+	
+	let data = await fetchJson(`https://raw.githubusercontent.com/Danzzxcodes/scraper/main/result/fake_address.json`)
+	res.json({
+	status: true,
+	creator: `${creator}`,
+	result: data
+	})
+} else {
+  res.json(loghandler.notapikey)
+}
+})
+
 module.exports = router
