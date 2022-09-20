@@ -1,0 +1,1441 @@
+body.blue-mode {
+    --bg-opacity: 1;
+    background-color: #1e1e2f;
+    background-color: rgba(255, 255, 255, var(--bg-opacity));
+    color: #fff;
+}
+
+.card-body {
+    background-color: #1e1e2f;
+}
+
+.sticky-footer {
+    background-color: #1e1e2f;
+    color: #fff
+}
+
+.sticky-footer a {
+    color: #fff
+}
+
+/* === Template mixins === */
+/* Miscellaneous Mixins */
+.list-wrapper ul li .form-check, .list-wrapper ul li .form-check .form-check-label {
+  text-overflow: ellipsis;
+  overflow: hidden;
+  max-width: 100%;
+  white-space: nowrap; }
+
+/* Animation Mixins */
+@keyframes dropdownAnimation {
+  from {
+    opacity: 0;
+    transform: translate3d(0, -30px, 0); }
+  to {
+    opacity: 1;
+    transform: none;
+    transform: translate3d(0, 0px, 0); } }
+
+.dropdownAnimation, .navbar .navbar-menu-wrapper .navbar-nav .nav-item.dropdown .dropdown-menu {
+  animation-name: dropdownAnimation;
+  -webkit-animation-duration: 0.25s;
+  -moz-animation-duration: 0.25s;
+  -ms-animation-duration: 0.25s;
+  -o-animation-duration: 0.25s;
+  animation-duration: 0.25s;
+  -webkit-animation-fill-mode: both;
+  -moz-animation-fill-mode: both;
+  -ms-animation-fill-mode: both;
+  -o-animation-fill-mode: both;
+  animation-fill-mode: both; }
+
+@keyframes fadeOut {
+  from {
+    opacity: 1; }
+  to {
+    opacity: 0; } }
+
+.fadeOut {
+  animation-name: fadeOut; }
+
+.infinite-spin {
+  animation-name: spin;
+  animation-duration: 3s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear; }
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg); }
+  to {
+    transform: rotate(360deg); } }
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 100%, 0); }
+  to {
+    opacity: 1;
+    transform: none; } }
+
+.fadeInUp {
+  animation-name: fadeInUp; }
+
+/*-------------------------------------------------------------------*/
+/* === Core Styles === */
+/* Reset Styles */
+body {
+  padding: 0;
+  margin: 0;
+  overflow-x: hidden; }
+
+.form-control, .asColorPicker-input, .dataTables_wrapper select, .jsgrid .jsgrid-table .jsgrid-filter-row input[type=text],
+.jsgrid .jsgrid-table .jsgrid-filter-row select, .jsgrid .jsgrid-table .jsgrid-filter-row input[type=number], .select2-container--default .select2-selection--single, .select2-container--default .select2-selection--single .select2-search__field, .typeahead,
+.tt-query,
+.tt-hint, .form-control:focus, .asColorPicker-input:focus, .dataTables_wrapper select:focus, .jsgrid .jsgrid-table .jsgrid-filter-row input:focus[type=text],
+.jsgrid .jsgrid-table .jsgrid-filter-row select:focus, .jsgrid .jsgrid-table .jsgrid-filter-row input:focus[type=number], .select2-container--default .select2-selection--single:focus, .select2-container--default .select2-selection--single .select2-search__field:focus, .typeahead:focus,
+.tt-query:focus,
+.tt-hint:focus {
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none; }
+
+.form-control, .asColorPicker-input, .dataTables_wrapper select, .jsgrid .jsgrid-table .jsgrid-filter-row input[type=text],
+.jsgrid .jsgrid-table .jsgrid-filter-row select, .jsgrid .jsgrid-table .jsgrid-filter-row input[type=number], .select2-container--default .select2-selection--single, .select2-container--default .select2-selection--single .select2-search__field, .typeahead,
+.tt-query,
+.tt-hint {
+  box-shadow: none; }
+
+.form-control:focus, .asColorPicker-input:focus, .dataTables_wrapper select:focus, .jsgrid .jsgrid-table .jsgrid-filter-row input:focus[type=text],
+.jsgrid .jsgrid-table .jsgrid-filter-row select:focus, .jsgrid .jsgrid-table .jsgrid-filter-row input:focus[type=number], .select2-container--default .select2-selection--single:focus, .select2-container--default .select2-selection--single .select2-search__field:focus, .typeahead:focus,
+.tt-query:focus,
+.tt-hint:focus {
+  outline: 0;
+  box-shadow: none;
+  background: #191c20;
+  border: none; }
+
+a,
+div,
+h1,
+h2,
+h3,
+h4,
+h5,
+p,
+span {
+  text-shadow: none; }
+
+[type=button]:focus,
+a:active,
+a:focus,
+a:visited,
+button::-moz-focus-inner,
+input[type=reset]::-moz-focus-inner,
+input[type=button]::-moz-focus-inner,
+input[type=submit]::-moz-focus-inner,
+input[type=file] > input[type=button]::-moz-focus-inner,
+select::-moz-focus-inner {
+  outline: 0; }
+
+input, .form-control:focus, .asColorPicker-input:focus, .dataTables_wrapper select:focus, .jsgrid .jsgrid-table .jsgrid-filter-row input:focus[type=text],
+.jsgrid .jsgrid-table .jsgrid-filter-row select:focus, .jsgrid .jsgrid-table .jsgrid-filter-row input:focus[type=number], .select2-container--default .select2-selection--single:focus, .select2-container--default .select2-selection--single .select2-search__field:focus, .typeahead:focus,
+.tt-query:focus,
+.tt-hint:focus,
+input:focus,
+select:focus,
+textarea:focus,
+button:focus {
+  outline: none;
+  outline-width: 0;
+  outline-color: transparent;
+  box-shadow: none;
+  outline-style: none; }
+
+textarea {
+  resize: none;
+  overflow-x: hidden; }
+
+.btn, .fc button, .ajax-upload-dragdrop .ajax-file-upload, .swal2-modal .swal2-buttonswrapper .swal2-styled, .swal2-modal .swal2-buttonswrapper .swal2-styled.swal2-confirm, .swal2-modal .swal2-buttonswrapper .swal2-styled.swal2-cancel, .wizard > .actions a,
+.btn-group.open .dropdown-toggle,
+.fc .open.fc-button-group .dropdown-toggle,
+.btn:active,
+.fc button:active,
+.ajax-upload-dragdrop .ajax-file-upload:active,
+.swal2-modal .swal2-buttonswrapper .swal2-styled:active,
+.wizard > .actions a:active, .btn:focus, .fc button:focus, .ajax-upload-dragdrop .ajax-file-upload:focus, .swal2-modal .swal2-buttonswrapper .swal2-styled:focus, .wizard > .actions a:focus, .btn:hover, .fc button:hover, .ajax-upload-dragdrop .ajax-file-upload:hover, .swal2-modal .swal2-buttonswrapper .swal2-styled:hover, .wizard > .actions a:hover,
+.btn:visited,
+.fc button:visited,
+.ajax-upload-dragdrop .ajax-file-upload:visited,
+.swal2-modal .swal2-buttonswrapper .swal2-styled:visited,
+.wizard > .actions a:visited,
+a,
+a:active,
+a:checked,
+a:focus,
+a:hover,
+a:visited,
+body,
+button,
+button:active,
+button:hover,
+button:visited,
+div,
+input,
+input:active,
+input:focus,
+input:hover,
+input:visited,
+select,
+select:active,
+select:focus,
+select:visited,
+textarea,
+textarea:active,
+textarea:focus,
+textarea:hover,
+textarea:visited {
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none; }
+
+.btn.active.focus, .fc button.active.focus, .ajax-upload-dragdrop .active.focus.ajax-file-upload, .swal2-modal .swal2-buttonswrapper .active.focus.swal2-styled, .wizard > .actions a.active.focus,
+.btn.active:focus,
+.fc button.active:focus,
+.ajax-upload-dragdrop .active.ajax-file-upload:focus,
+.swal2-modal .swal2-buttonswrapper .active.swal2-styled:focus,
+.wizard > .actions a.active:focus, .btn.focus, .fc button.focus, .ajax-upload-dragdrop .focus.ajax-file-upload, .swal2-modal .swal2-buttonswrapper .focus.swal2-styled, .wizard > .actions a.focus,
+.btn:active.focus,
+.fc button:active.focus,
+.ajax-upload-dragdrop .ajax-file-upload:active.focus,
+.swal2-modal .swal2-buttonswrapper .swal2-styled:active.focus,
+.wizard > .actions a:active.focus,
+.btn:active:focus,
+.fc button:active:focus,
+.ajax-upload-dragdrop .ajax-file-upload:active:focus,
+.swal2-modal .swal2-buttonswrapper .swal2-styled:active:focus,
+.wizard > .actions a:active:focus, .btn:focus, .fc button:focus, .ajax-upload-dragdrop .ajax-file-upload:focus, .swal2-modal .swal2-buttonswrapper .swal2-styled:focus, .wizard > .actions a:focus,
+button,
+button:active,
+button:checked,
+button:focus,
+button:hover,
+button:visited {
+  outline: 0;
+  outline-offset: 0; }
+
+.bootstrap-select .dropdown-toggle:focus {
+  outline: 0;
+  outline-offset: 0; }
+
+.dropdown-menu > li > a:active,
+.dropdown-menu > li > a:focus,
+.dropdown-menu > li > a:hover,
+.dropdown-menu > li > a:visited {
+  outline: 0; }
+
+a:focus,
+input:focus {
+  border-color: transparent;
+  outline: none; }
+  
+  /* Dropdowns */
+.dropdown .dropdown-menu {
+  margin-top: .75rem;
+  font-size: 0.875rem;
+  box-shadow: none; }
+  .dropdown .dropdown-menu .dropdown-item {
+    font-size: 1rem;
+    padding: .25rem 1.5rem; }
+    .dropdown .dropdown-menu .dropdown-item:active {
+      background: initial; }
+
+/* Forms */
+.form-group {
+  margin-bottom: 1rem; }
+
+.input-group-append,
+.input-group-prepend {
+  color: #4b5564;
+  width: auto;
+  border: none; }
+  .input-group-append .input-group-text,
+  .input-group-prepend .input-group-text {
+    border-color: #2c2e33;
+    padding: 0.56rem 0.75rem;
+    color: #4b5564;
+    background: none; }
+
+.form-control, .asColorPicker-input, .dataTables_wrapper select, .jsgrid .jsgrid-table .jsgrid-filter-row input[type=text],
+.jsgrid .jsgrid-table .jsgrid-filter-row select, .jsgrid .jsgrid-table .jsgrid-filter-row input[type=number], .select2-container--default .select2-selection--single, .select2-container--default .select2-selection--single .select2-search__field, .typeahead,
+.tt-query,
+.tt-hint {
+  border: 1px solid #2c2e33;
+  height: calc(2.25rem + 2px);
+  font-weight: normal;
+  font-size: 0.875rem;
+  padding: 0.625rem 0.6875rem;
+  background-color: #2A3038;
+  border-radius: 2px;
+  color: #ffffff; }
+  .form-control:focus, .asColorPicker-input:focus, .dataTables_wrapper select:focus, .jsgrid .jsgrid-table .jsgrid-filter-row input:focus[type=text],
+  .jsgrid .jsgrid-table .jsgrid-filter-row select:focus, .jsgrid .jsgrid-table .jsgrid-filter-row input:focus[type=number], .select2-container--default .select2-selection--single:focus, .select2-container--default .select2-selection--single .select2-search__field:focus, .typeahead:focus,
+  .tt-query:focus,
+  .tt-hint:focus {
+    border: 1px solid rgba(71, 164, 71, 0.5);
+    background-color: #2A3038; }
+  .form-control.form-control-lg, .form-control-lg.asColorPicker-input, .dataTables_wrapper select.form-control-lg, .jsgrid .jsgrid-table .jsgrid-filter-row input.form-control-lg[type=text],
+  .jsgrid .jsgrid-table .jsgrid-filter-row select.form-control-lg, .jsgrid .jsgrid-table .jsgrid-filter-row input.form-control-lg[type=number], .select2-container--default .form-control-lg.select2-selection--single, .select2-container--default .select2-selection--single .form-control-lg.select2-search__field, .form-control-lg.typeahead,
+  .form-control-lg.tt-query,
+  .form-control-lg.tt-hint {
+    padding: 0.94rem .75rem;
+    height: calc(2.875rem + 2px); }
+  .form-control.form-control-sm, .form-control-sm.asColorPicker-input, .dataTables_wrapper select.form-control-sm, .jsgrid .jsgrid-table .jsgrid-filter-row input.form-control-sm[type=text],
+  .jsgrid .jsgrid-table .jsgrid-filter-row select.form-control-sm, .jsgrid .jsgrid-table .jsgrid-filter-row input.form-control-sm[type=number], .select2-container--default .form-control-sm.select2-selection--single, .select2-container--default .select2-selection--single .form-control-sm.select2-search__field, .form-control-sm.typeahead,
+  .form-control-sm.tt-query,
+  .form-control-sm.tt-hint {
+    padding: 0.5rem .75rem;
+    height: calc(1.8125rem + 2px); }
+  .form-control::placeholder, .asColorPicker-input::placeholder, .dataTables_wrapper select::placeholder, .jsgrid .jsgrid-table .jsgrid-filter-row input[type=text]::placeholder,
+  .jsgrid .jsgrid-table .jsgrid-filter-row select::placeholder, .jsgrid .jsgrid-table .jsgrid-filter-row input[type=number]::placeholder, .select2-container--default .select2-selection--single::placeholder, .select2-container--default .select2-selection--single .select2-search__field::placeholder, .typeahead::placeholder,
+  .tt-query::placeholder,
+  .tt-hint::placeholder {
+    color: #6c7293;
+    font-size: 0.875rem; }
+
+.navbar .form-control, .navbar .asColorPicker-input, .navbar .dataTables_wrapper select, .dataTables_wrapper .navbar select, .navbar .jsgrid .jsgrid-table .jsgrid-filter-row input[type=text], .jsgrid .jsgrid-table .jsgrid-filter-row .navbar input[type=text],
+.navbar .jsgrid .jsgrid-table .jsgrid-filter-row select, .jsgrid .jsgrid-table .jsgrid-filter-row .navbar select, .navbar .jsgrid .jsgrid-table .jsgrid-filter-row input[type=number], .jsgrid .jsgrid-table .jsgrid-filter-row .navbar input[type=number], .navbar .select2-container--default .select2-selection--single, .select2-container--default .navbar .select2-selection--single, .navbar .select2-container--default .select2-selection--single .select2-search__field, .select2-container--default .select2-selection--single .navbar .select2-search__field, .navbar .typeahead,
+.navbar .tt-query,
+.navbar .tt-hint {
+  width: 75%;
+  border-radius: 6px; }
+  .navbar .form-control:focus, .navbar .asColorPicker-input:focus, .navbar .dataTables_wrapper select:focus, .dataTables_wrapper .navbar select:focus, .navbar .jsgrid .jsgrid-table .jsgrid-filter-row input:focus[type=text], .jsgrid .jsgrid-table .jsgrid-filter-row .navbar input:focus[type=text],
+  .navbar .jsgrid .jsgrid-table .jsgrid-filter-row select:focus, .jsgrid .jsgrid-table .jsgrid-filter-row .navbar select:focus, .navbar .jsgrid .jsgrid-table .jsgrid-filter-row input:focus[type=number], .jsgrid .jsgrid-table .jsgrid-filter-row .navbar input:focus[type=number], .navbar .select2-container--default .select2-selection--single:focus, .select2-container--default .navbar .select2-selection--single:focus, .navbar .select2-container--default .select2-selection--single .select2-search__field:focus, .select2-container--default .select2-selection--single .navbar .select2-search__field:focus, .navbar .typeahead:focus,
+  .navbar .tt-query:focus,
+  .navbar .tt-hint:focus {
+    border: none; }
+
+select.form-control, select.asColorPicker-input, .dataTables_wrapper select,
+.jsgrid .jsgrid-table .jsgrid-filter-row select, .select2-container--default select.select2-selection--single, .select2-container--default .select2-selection--single select.select2-search__field, select.typeahead,
+select.tt-query,
+select.tt-hint {
+  padding: .4375rem .75rem;
+  border: 0;
+  color: #4b5564; }
+  select.form-control:focus, select.asColorPicker-input:focus, .dataTables_wrapper select:focus,
+  .jsgrid .jsgrid-table .jsgrid-filter-row select:focus, .select2-container--default select.select2-selection--single:focus, .select2-container--default .select2-selection--single select.select2-search__field:focus, select.typeahead:focus,
+  select.tt-query:focus,
+  select.tt-hint:focus {
+    outline: 1px solid #2c2e33; }
+  select.form-control.border-primary, select.border-primary.asColorPicker-input, .dataTables_wrapper select.border-primary,
+  .jsgrid .jsgrid-table .jsgrid-filter-row select.border-primary, .select2-container--default select.border-primary.select2-selection--single, .select2-container--default .select2-selection--single select.border-primary.select2-search__field, select.border-primary.typeahead,
+  select.border-primary.tt-query,
+  select.border-primary.tt-hint {
+    outline: 1px solid #0090e7; }
+    select.form-control.border-primary:focus, select.border-primary.asColorPicker-input:focus, .dataTables_wrapper select.border-primary:focus,
+    .jsgrid .jsgrid-table .jsgrid-filter-row select.border-primary:focus, .select2-container--default select.border-primary.select2-selection--single:focus, .select2-container--default .select2-selection--single select.border-primary.select2-search__field:focus, select.border-primary.typeahead:focus,
+    select.border-primary.tt-query:focus,
+    select.border-primary.tt-hint:focus {
+      outline: 1px solid #0090e7; }
+  select.form-control.border-secondary, select.form-control.loader-demo-box, select.loader-demo-box.asColorPicker-input, .dataTables_wrapper select.loader-demo-box,
+  .jsgrid .jsgrid-table .jsgrid-filter-row select.loader-demo-box, .select2-container--default select.loader-demo-box.select2-selection--single, .select2-container--default .select2-selection--single select.loader-demo-box.select2-search__field, select.loader-demo-box.typeahead,
+  select.loader-demo-box.tt-query,
+  select.loader-demo-box.tt-hint, select.border-secondary.asColorPicker-input, .dataTables_wrapper select.border-secondary,
+  .jsgrid .jsgrid-table .jsgrid-filter-row select.border-secondary, .select2-container--default select.border-secondary.select2-selection--single, .select2-container--default .select2-selection--single select.border-secondary.select2-search__field, select.border-secondary.typeahead,
+  select.border-secondary.tt-query,
+  select.border-secondary.tt-hint {
+    outline: 1px solid #e4eaec; }
+    select.form-control.border-secondary:focus, select.form-control.loader-demo-box:focus, select.loader-demo-box.asColorPicker-input:focus, .dataTables_wrapper select.loader-demo-box:focus,
+    .jsgrid .jsgrid-table .jsgrid-filter-row select.loader-demo-box:focus, .select2-container--default select.loader-demo-box.select2-selection--single:focus, .select2-container--default .select2-selection--single select.loader-demo-box.select2-search__field:focus, select.loader-demo-box.typeahead:focus,
+    select.loader-demo-box.tt-query:focus,
+    select.loader-demo-box.tt-hint:focus, select.border-secondary.asColorPicker-input:focus, .dataTables_wrapper select.border-secondary:focus,
+    .jsgrid .jsgrid-table .jsgrid-filter-row select.border-secondary:focus, .select2-container--default select.border-secondary.select2-selection--single:focus, .select2-container--default .select2-selection--single select.border-secondary.select2-search__field:focus, select.border-secondary.typeahead:focus,
+    select.border-secondary.tt-query:focus,
+    select.border-secondary.tt-hint:focus {
+      outline: 1px solid #e4eaec; }
+  select.form-control.border-success, select.border-success.asColorPicker-input, .swal2-modal .swal2-buttonswrapper select.asColorPicker-input.swal2-styled.swal2-confirm, .dataTables_wrapper select.border-success, .dataTables_wrapper .swal2-modal .swal2-buttonswrapper select.swal2-styled.swal2-confirm, .swal2-modal .swal2-buttonswrapper .dataTables_wrapper select.swal2-styled.swal2-confirm,
+  .jsgrid .jsgrid-table .jsgrid-filter-row select.border-success, .jsgrid .jsgrid-table .jsgrid-filter-row .swal2-modal .swal2-buttonswrapper select.swal2-styled.swal2-confirm, .swal2-modal .swal2-buttonswrapper .jsgrid .jsgrid-table .jsgrid-filter-row select.swal2-styled.swal2-confirm, .select2-container--default select.border-success.select2-selection--single, .select2-container--default .swal2-modal .swal2-buttonswrapper select.select2-selection--single.swal2-styled.swal2-confirm, .swal2-modal .swal2-buttonswrapper .select2-container--default select.select2-selection--single.swal2-styled.swal2-confirm, .select2-container--default .select2-selection--single select.border-success.select2-search__field, .select2-container--default .select2-selection--single .swal2-modal .swal2-buttonswrapper select.select2-search__field.swal2-styled.swal2-confirm, .swal2-modal .swal2-buttonswrapper .select2-container--default .select2-selection--single select.select2-search__field.swal2-styled.swal2-confirm, .swal2-modal .swal2-buttonswrapper select.form-control.swal2-styled.swal2-confirm, .swal2-modal .swal2-buttonswrapper select.swal2-styled.swal2-confirm.typeahead,
+  .swal2-modal .swal2-buttonswrapper select.swal2-styled.swal2-confirm.tt-query,
+  .swal2-modal .swal2-buttonswrapper select.swal2-styled.swal2-confirm.tt-hint, select.border-success.typeahead,
+  select.border-success.tt-query,
+  select.border-success.tt-hint {
+    outline: 1px solid #FF0300; }
+    select.form-control.border-success:focus, select.border-success.asColorPicker-input:focus, .swal2-modal .swal2-buttonswrapper select.asColorPicker-input.swal2-styled.swal2-confirm:focus, .dataTables_wrapper select.border-success:focus, .dataTables_wrapper .swal2-modal .swal2-buttonswrapper select.swal2-styled.swal2-confirm:focus, .swal2-modal .swal2-buttonswrapper .dataTables_wrapper select.swal2-styled.swal2-confirm:focus,
+    .jsgrid .jsgrid-table .jsgrid-filter-row select.border-success:focus, .jsgrid .jsgrid-table .jsgrid-filter-row .swal2-modal .swal2-buttonswrapper select.swal2-styled.swal2-confirm:focus, .swal2-modal .swal2-buttonswrapper .jsgrid .jsgrid-table .jsgrid-filter-row select.swal2-styled.swal2-confirm:focus, .select2-container--default select.border-success.select2-selection--single:focus, .select2-container--default .swal2-modal .swal2-buttonswrapper select.select2-selection--single.swal2-styled.swal2-confirm:focus, .swal2-modal .swal2-buttonswrapper .select2-container--default select.select2-selection--single.swal2-styled.swal2-confirm:focus, .select2-container--default .select2-selection--single select.border-success.select2-search__field:focus, .select2-container--default .select2-selection--single .swal2-modal .swal2-buttonswrapper select.select2-search__field.swal2-styled.swal2-confirm:focus, .swal2-modal .swal2-buttonswrapper .select2-container--default .select2-selection--single select.select2-search__field.swal2-styled.swal2-confirm:focus, .swal2-modal .swal2-buttonswrapper select.form-control.swal2-styled.swal2-confirm:focus, .swal2-modal .swal2-buttonswrapper select.swal2-styled.swal2-confirm.typeahead:focus,
+    .swal2-modal .swal2-buttonswrapper select.swal2-styled.swal2-confirm.tt-query:focus,
+    .swal2-modal .swal2-buttonswrapper select.swal2-styled.swal2-confirm.tt-hint:focus, select.border-success.typeahead:focus,
+    select.border-success.tt-query:focus,
+    select.border-success.tt-hint:focus {
+      outline: 1px solid #FF0300; }
+  select.form-control.border-info, select.border-info.asColorPicker-input, .dataTables_wrapper select.border-info,
+  .jsgrid .jsgrid-table .jsgrid-filter-row select.border-info, .select2-container--default select.border-info.select2-selection--single, .select2-container--default .select2-selection--single select.border-info.select2-search__field, select.border-info.typeahead,
+  select.border-info.tt-query,
+  select.border-info.tt-hint {
+    outline: 1px solid #8f5fe8; }
+    select.form-control.border-info:focus, select.border-info.asColorPicker-input:focus, .dataTables_wrapper select.border-info:focus,
+    .jsgrid .jsgrid-table .jsgrid-filter-row select.border-info:focus, .select2-container--default select.border-info.select2-selection--single:focus, .select2-container--default .select2-selection--single select.border-info.select2-search__field:focus, select.border-info.typeahead:focus,
+    select.border-info.tt-query:focus,
+    select.border-info.tt-hint:focus {
+      outline: 1px solid #8f5fe8; }
+  select.form-control.border-warning, select.border-warning.asColorPicker-input, .dataTables_wrapper select.border-warning,
+  .jsgrid .jsgrid-table .jsgrid-filter-row select.border-warning, .select2-container--default select.border-warning.select2-selection--single, .select2-container--default .select2-selection--single select.border-warning.select2-search__field, select.border-warning.typeahead,
+  select.border-warning.tt-query,
+  select.border-warning.tt-hint {
+    outline: 1px solid #ffab00; }
+    select.form-control.border-warning:focus, select.border-warning.asColorPicker-input:focus, .dataTables_wrapper select.border-warning:focus,
+    .jsgrid .jsgrid-table .jsgrid-filter-row select.border-warning:focus, .select2-container--default select.border-warning.select2-selection--single:focus, .select2-container--default .select2-selection--single select.border-warning.select2-search__field:focus, select.border-warning.typeahead:focus,
+    select.border-warning.tt-query:focus,
+    select.border-warning.tt-hint:focus {
+      outline: 1px solid #ffab00; }
+  select.form-control.border-danger, select.border-danger.asColorPicker-input, .dataTables_wrapper select.border-danger,
+  .jsgrid .jsgrid-table .jsgrid-filter-row select.border-danger, .select2-container--default select.border-danger.select2-selection--single, .select2-container--default .select2-selection--single select.border-danger.select2-search__field, select.border-danger.typeahead,
+  select.border-danger.tt-query,
+  select.border-danger.tt-hint {
+    outline: 1px solid #fc424a; }
+    select.form-control.border-danger:focus, select.border-danger.asColorPicker-input:focus, .dataTables_wrapper select.border-danger:focus,
+    .jsgrid .jsgrid-table .jsgrid-filter-row select.border-danger:focus, .select2-container--default select.border-danger.select2-selection--single:focus, .select2-container--default .select2-selection--single select.border-danger.select2-search__field:focus, select.border-danger.typeahead:focus,
+    select.border-danger.tt-query:focus,
+    select.border-danger.tt-hint:focus {
+      outline: 1px solid #fc424a; }
+  select.form-control.border-light, select.border-light.asColorPicker-input, .dataTables_wrapper select.border-light,
+  .jsgrid .jsgrid-table .jsgrid-filter-row select.border-light, .select2-container--default select.border-light.select2-selection--single, .select2-container--default .select2-selection--single select.border-light.select2-search__field, select.border-light.typeahead,
+  select.border-light.tt-query,
+  select.border-light.tt-hint {
+    outline: 1px solid #ffffff; }
+    select.form-control.border-light:focus, select.border-light.asColorPicker-input:focus, .dataTables_wrapper select.border-light:focus,
+    .jsgrid .jsgrid-table .jsgrid-filter-row select.border-light:focus, .select2-container--default select.border-light.select2-selection--single:focus, .select2-container--default .select2-selection--single select.border-light.select2-search__field:focus, select.border-light.typeahead:focus,
+    select.border-light.tt-query:focus,
+    select.border-light.tt-hint:focus {
+      outline: 1px solid #ffffff; }
+  select.form-control.border-dark, select.border-dark.asColorPicker-input, .dataTables_wrapper select.border-dark,
+  .jsgrid .jsgrid-table .jsgrid-filter-row select.border-dark, .select2-container--default select.border-dark.select2-selection--single, .select2-container--default .select2-selection--single select.border-dark.select2-search__field, select.border-dark.typeahead,
+  select.border-dark.tt-query,
+  select.border-dark.tt-hint {
+    outline: 1px solid #0d0d0d; }
+    select.form-control.border-dark:focus, select.border-dark.asColorPicker-input:focus, .dataTables_wrapper select.border-dark:focus,
+    .jsgrid .jsgrid-table .jsgrid-filter-row select.border-dark:focus, .select2-container--default select.border-dark.select2-selection--single:focus, .select2-container--default .select2-selection--single select.border-dark.select2-search__field:focus, select.border-dark.typeahead:focus,
+    select.border-dark.tt-query:focus,
+    select.border-dark.tt-hint:focus {
+      outline: 1px solid #0d0d0d; }
+
+.form-group label {
+  font-size: 0.875rem;
+  line-height: 1;
+  vertical-align: top; }
+
+.form-group.has-danger .form-control, .form-group.has-danger .asColorPicker-input, .form-group.has-danger .dataTables_wrapper select, .dataTables_wrapper .form-group.has-danger select, .form-group.has-danger .jsgrid .jsgrid-table .jsgrid-filter-row input[type=text], .jsgrid .jsgrid-table .jsgrid-filter-row .form-group.has-danger input[type=text],
+.form-group.has-danger .jsgrid .jsgrid-table .jsgrid-filter-row select, .jsgrid .jsgrid-table .jsgrid-filter-row .form-group.has-danger select, .form-group.has-danger .jsgrid .jsgrid-table .jsgrid-filter-row input[type=number], .jsgrid .jsgrid-table .jsgrid-filter-row .form-group.has-danger input[type=number], .form-group.has-danger .select2-container--default .select2-selection--single, .select2-container--default .form-group.has-danger .select2-selection--single, .form-group.has-danger .select2-container--default .select2-selection--single .select2-search__field, .select2-container--default .select2-selection--single .form-group.has-danger .select2-search__field, .form-group.has-danger .typeahead,
+.form-group.has-danger .tt-query,
+.form-group.has-danger .tt-hint {
+  border-color: #fc424a; }
+
+.form-group .file-upload-default {
+  visibility: hidden;
+  position: absolute; }
+
+.form-group .file-upload-info {
+  background: transparent; }
+
+.form-check {
+  min-height: 18px;
+  padding-left: 1.25rem; }
+
+div.tagsinput {
+  background: transparent; }
+
+/* Icons */
+.icons-list {
+  border-left: 1px solid #2c2e33;
+  border-top: 1px solid #2c2e33; }
+  .icons-list > div {
+    border-bottom: 1px solid #2c2e33;
+    border-right: 1px solid #2c2e33;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-align-items: center;
+    align-items: center;
+    padding: 15px 15px;
+    font-weight: normal;
+    font-size: 0.875rem; }
+    .icons-list > div i {
+      display: inline-block;
+      font-size: 20px;
+      width: 40px;
+      text-align: left;
+      color: #0090e7; }
+
+/* Loaders */
+#pgloading {
+  position: static; }
+  #pgloading .bokeh {
+    font-size: 100px;
+    width: 1em;
+    height: 1em;
+    position: relative;
+    margin: 0 auto;
+    border-radius: 50%;
+    border: 0.01em solid #2c2e33;
+    list-style: none;
+    padding: 0; }
+    #pgloading .bokeh li {
+      position: absolute;
+      width: .2em;
+      height: .2em;
+      border-radius: 50%; }
+      #pgloading .bokeh li:nth-child(1) {
+        left: 50%;
+        top: 0;
+        margin: 0 0 0 -.1em;
+        background: #FF0300;
+        -webkit-transform-origin: 50% 250%;
+        transform-origin: 50% 250%;
+        -webkit-animation: rota 1.13s linear infinite, opa 3.67s ease-in-out infinite alternate;
+        animation: rota 1.13s linear infinite, opa 3.67s ease-in-out infinite alternate; }
+      #pgloading .bokeh li:nth-child(2) {
+        top: 50%;
+        right: 0;
+        margin: -.1em 0 0 0;
+        background: #fc424a;
+        -webkit-transform-origin: -150% 50%;
+        transform-origin: -150% 50%;
+        -webkit-animation: rota 1.86s linear infinite, opa 4.29s ease-in-out infinite alternate;
+        animation: rota 1.86s linear infinite, opa 4.29s ease-in-out infinite alternate; }
+      #pgloading .bokeh li:nth-child(3) {
+        left: 50%;
+        bottom: 0;
+        margin: 0 0 0 -.1em;
+        background: #ffab00;
+        -webkit-transform-origin: 50% -150%;
+        transform-origin: 50% -150%;
+        -webkit-animation: rota 1.45s linear infinite, opa 5.12s ease-in-out infinite alternate;
+        animation: rota 1.45s linear infinite, opa 5.12s ease-in-out infinite alternate; }
+      #pgloading .bokeh li:nth-child(4) {
+        top: 50%;
+        left: 0;
+        margin: -.1em 0 0 0;
+        background: #0090e7;
+        -webkit-transform-origin: 250% 50%;
+        transform-origin: 250% 50%;
+        -webkit-animation: rota 1.72s linear infinite, opa 5.25s ease-in-out infinite alternate;
+        animation: rota 1.72s linear infinite, opa 5.25s ease-in-out infinite alternate; }
+
+@-webkit-keyframes rota {
+  from { }
+  to {
+    -webkit-transform: rotate(360deg); } }
+
+@keyframes rota {
+  from { }
+  to {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg); } }
+
+@-webkit-keyframes opa {
+  0% { }
+  12.0% {
+    opacity: 0.80; }
+  19.5% {
+    opacity: 0.88; }
+  37.2% {
+    opacity: 0.64; }
+  40.5% {
+    opacity: 0.52; }
+  52.7% {
+    opacity: 0.69; }
+  60.2% {
+    opacity: 0.60; }
+  66.6% {
+    opacity: 0.52; }
+  70.0% {
+    opacity: 0.63; }
+  79.9% {
+    opacity: 0.60; }
+  84.2% {
+    opacity: 0.75; }
+  91.0% {
+    opacity: 0.87; } }
+
+@keyframes opa {
+  0% { }
+  12.0% {
+    opacity: 0.80; }
+  19.5% {
+    opacity: 0.88; }
+  37.2% {
+    opacity: 0.64; }
+  40.5% {
+    opacity: 0.52; }
+  52.7% {
+    opacity: 0.69; }
+  60.2% {
+    opacity: 0.60; }
+  66.6% {
+    opacity: 0.52; }
+  70.0% {
+    opacity: 0.63; }
+  79.9% {
+    opacity: 0.60; }
+  84.2% {
+    opacity: 0.75; }
+  91.0% {
+    opacity: 0.87; } }
+
+.glowing-loader {
+  position: relative; }
+
+.s2 {
+  position: absolute;
+  height: 70px;
+  width: 70px;
+  top: 50px;
+  background-color: transparent;
+  left: 50%;
+  transform: translate(-50%, -50%); }
+
+.s1 {
+  position: absolute;
+  height: 70px;
+  width: 70px;
+  left: 50%;
+  top: 50px;
+  transform-origin: center;
+  transform: translate(-50%, -50%) rotate(45deg);
+  background-color: transparent; }
+
+.bigcon {
+  position: absolute;
+  height: 75px;
+  width: 75px;
+  left: 50%;
+  top: 50px;
+  transform-origin: center;
+  transform: translate(-50%, -50%) rotate(-45deg);
+  background-color: transparent;
+  animation: bigcon 2s infinite linear;
+  animation-delay: 0.25s; }
+
+.b {
+  border-radius: 50%;
+  position: absolute; }
+
+.s {
+  width: 15px;
+  height: 15px;
+  animation: small 2s infinite ease;
+  box-shadow: 0px 2px rgba(0, 0, 0, 0.3);
+  background-color: #0090e7; }
+
+.s:nth-child(1) {
+  top: 0%;
+  left: 0%; }
+
+.s:nth-child(2) {
+  top: 0%;
+  right: 0%; }
+
+.s:nth-child(3) {
+  right: 0%;
+  bottom: 0%; }
+
+.s:nth-child(4) {
+  bottom: 0%;
+  left: 0%; }
+
+.big {
+  width: 15px;
+  height: 15px;
+  border-radius: 15px;
+  box-shadow: 0px 0px 10px #0090e7, 0px 0px 20px #0090e7, 0px 0px 30px #0090e7, 0px 0px 50px #0090e7, 0px 0px 60px #0090e7;
+  z-index: 1;
+  background-color: #0090e7;
+  animation: bigball 1s infinite linear; }
+
+.sb1 {
+  animation-delay: -1.75s; }
+
+.sb6 {
+  animation-delay: -1.5s; }
+
+.sb2 {
+  animation-delay: -1.25s; }
+
+.sb7 {
+  animation-delay: -1s; }
+
+.sb3 {
+  animation-delay: -0.75s; }
+
+.sb8 {
+  animation-delay: -0.5s; }
+
+.sb4 {
+  animation-delay: -0.25s; }
+
+.sb5 {
+  animation-delay: -0s; }
+
+@keyframes bigcon {
+  0% {
+    transform-origin: center;
+    transform: translate(-50%, -50%) rotate(45deg); }
+  100% {
+    transform-origin: center;
+    transform: translate(-50%, -50%) rotate(405deg); } }
+
+@keyframes small {
+  0% {
+    transform: scale(1);
+    background-color: #4ebcff; }
+  10% {
+    transform: scale(1.3);
+    background-color: #0090e7; }
+  15% {
+    transform: scale(1); }
+  25% {
+    transform: scale(1);
+    background-color: #0090e7; }
+  100% {
+    transform: scale(1);
+    background-color: #0090e7; } }
+
+/* Pixel loader */
+.pixel-loader {
+  width: 10px;
+  height: 10px;
+  background: #ffab00;
+  color: #ffab00;
+  margin: 80px auto;
+  box-shadow: 15px 15px  0 0, -15px -15px  0 0, 15px -15px  0 0, -15px 15px  0 0, 0 15px  0 0, 15px 0  0 0, -15px 0  0 0, 0 -15px 0 0;
+  animation: anim 2s linear infinite; }
+
+@keyframes anim {
+  0% {
+    -webkit-filter: hue-rotate(0deg); }
+  50% {
+    box-shadow: 20px 20px  0 0, -20px -20px  0 0, 20px -20px  0 0, -20px 20px  0 0, 0 10px  0 0, 10px 0  0 0, -10px 0  0 0, 0 -10px 0 0; }
+  75% {
+    box-shadow: 20px 20px  0 0, -20px -20px  0 0, 20px -20px  0 0, -20px 20px  0 0, 0 10px  0 0, 10px 0  0 0, -10px 0  0 0, 0 -10px 0 0; }
+  100% {
+    transform: rotate(360deg);
+    -webkit-filter: hue-rotate(360deg); } }
+
+/* Square box loader */
+@keyframes dyinglight {
+  15% {
+    transform: scale(1.6); }
+  50% {
+    transform: rotate(-89deg); }
+  100% {
+    transform: rotate(-90deg); } }
+
+.square-box-loader {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  display: inline-block; }
+
+.square-box-loader-square {
+  display: block;
+  width: 30px;
+  height: 30px;
+  background: #0090e7; }
+
+.square-box-loader-container {
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  transform-origin: 50% 50% 0;
+  animation: dyinglight 1s ease infinite;
+  backface-visibility: hidden; }
+
+.square-box-loader-corner-top:before,
+.square-box-loader-corner-top:after,
+.square-box-loader-corner-bottom:before,
+.square-box-loader-corner-bottom:after {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  color: #0090e7;
+  content: ''; }
+
+.square-box-loader-corner-top:before {
+  border-left: 1px solid;
+  border-top: 1px solid;
+  top: -4px;
+  left: -4px; }
+
+.square-box-loader-corner-top:after {
+  border-right: 1px solid;
+  border-top: 1px solid;
+  top: -4px;
+  right: -4px; }
+
+.square-box-loader-corner-bottom:before {
+  border-left: 1px solid;
+  border-bottom: 1px solid;
+  bottom: -4px;
+  left: -4px; }
+
+.square-box-loader-corner-bottom:after {
+  border-right: 1px solid;
+  border-bottom: 1px solid;
+  bottom: -4px;
+  right: -4px; }
+
+/* Circle loader */
+.circle-loader {
+  width: 70px;
+  height: 70px;
+  border-radius: 100%;
+  position: relative;
+  margin: 0 auto; }
+
+.circle-loader:before, .circle-loader:after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 100%;
+  border: 10px solid transparent;
+  border-top-color: #ffab00; }
+
+.circle-loader:before {
+  z-index: 100;
+  animation: spin 1s infinite; }
+
+.circle-loader:after {
+  border: 10px solid #e4eaec; }
+
+@keyframes spin {
+  0% {
+    -webkit-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg); }
+  100% {
+    -webkit-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    transform: rotate(360deg); } }
+
+/* Jumping dots loader */
+.jumping-dots-loader {
+  width: 100px;
+  height: 100px;
+  border-radius: 100%;
+  position: relative;
+  margin: 0 auto; }
+
+.jumping-dots-loader span {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  border-radius: 100%;
+  background-color: rgba(252, 66, 74, 0.8);
+  margin: 35px 5px; }
+
+.jumping-dots-loader span:nth-child(1) {
+  animation: bounce 1s ease-in-out infinite; }
+
+.jumping-dots-loader span:nth-child(2) {
+  animation: bounce 1s ease-in-out 0.33s infinite; }
+
+.jumping-dots-loader span:nth-child(3) {
+  animation: bounce 1s ease-in-out 0.66s infinite; }
+
+@keyframes bounce {
+  0%, 75%, 100% {
+    -webkit-transform: translateY(0);
+    -ms-transform: translateY(0);
+    -o-transform: translateY(0);
+    transform: translateY(0); }
+  25% {
+    -webkit-transform: translateY(-20px);
+    -ms-transform: translateY(-20px);
+    -o-transform: translateY(-20px);
+    transform: translateY(-20px); } }
+
+/* Bar loader */
+.bar-loader {
+  width: 50px;
+  height: 50px;
+  border-radius: 100%;
+  position: relative;
+  margin: 0 auto; }
+
+.bar-loader span {
+  display: inline-block;
+  width: 5px;
+  height: 30px;
+  background-color: rgba(252, 66, 74, 0.7); }
+
+.bar-loader span:nth-child(1) {
+  animation: grow 1s ease-in-out infinite; }
+
+.bar-loader span:nth-child(2) {
+  animation: grow 1s ease-in-out 0.15s infinite; }
+
+.bar-loader span:nth-child(3) {
+  animation: grow 1s ease-in-out 0.30s infinite; }
+
+.bar-loader span:nth-child(4) {
+  animation: grow 1s ease-in-out 0.45s infinite; }
+
+@keyframes grow {
+  0%, 100% {
+    -webkit-transform: scaleY(1);
+    -ms-transform: scaleY(1);
+    -o-transform: scaleY(1);
+    transform: scaleY(1); }
+  50% {
+    -webkit-transform: scaleY(1.8);
+    -ms-transform: scaleY(1.8);
+    -o-transform: scaleY(1.8);
+    transform: scaleY(1.8); } }
+
+/* Square path loader */
+.square-path-loader {
+  width: 100px;
+  height: 100px;
+  border-radius: 100%;
+  position: relative;
+  margin: 0 auto; }
+
+.square-path-loader:before, .square-path-loader:after {
+  content: "";
+  width: 15px;
+  height: 15px;
+  position: absolute;
+  top: 0;
+  left: calc(50% - 10px);
+  background-color: rgba(0, 210, 91, 0.7);
+  animation: squaremove 1s ease-in-out infinite; }
+
+.square-path-loader:after {
+  bottom: 0;
+  animation-delay: 0.5s; }
+
+@keyframes squaremove {
+  0%, 100% {
+    -webkit-transform: translate(0, 0) rotate(0);
+    -ms-transform: translate(0, 0) rotate(0);
+    -o-transform: translate(0, 0) rotate(0);
+    transform: translate(0, 0) rotate(0); }
+  25% {
+    -webkit-transform: translate(40px, 40px) rotate(45deg);
+    -ms-transform: translate(40px, 40px) rotate(45deg);
+    -o-transform: translate(40px, 40px) rotate(45deg);
+    transform: translate(40px, 40px) rotate(45deg); }
+  50% {
+    -webkit-transform: translate(0px, 80px) rotate(0deg);
+    -ms-transform: translate(0px, 80px) rotate(0deg);
+    -o-transform: translate(0px, 80px) rotate(0deg);
+    transform: translate(0px, 80px) rotate(0deg); }
+  75% {
+    -webkit-transform: translate(-40px, 40px) rotate(45deg);
+    -ms-transform: translate(-40px, 40px) rotate(45deg);
+    -o-transform: translate(-40px, 40px) rotate(45deg);
+    transform: translate(-40px, 40px) rotate(45deg); } }
+
+/* Dot opacity loader */
+.dot-opacity-loader {
+  width: 100px;
+  height: 100px;
+  border-radius: 100%;
+  position: relative;
+  margin: 0 auto; }
+
+.dot-opacity-loader span {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  border-radius: 100%;
+  background-color: #0090e7;
+  margin: 35px 5px;
+  opacity: 0; }
+
+.dot-opacity-loader span:nth-child(1) {
+  animation: opacitychange 1s ease-in-out infinite; }
+
+.dot-opacity-loader span:nth-child(2) {
+  animation: opacitychange 1s ease-in-out 0.33s infinite; }
+
+.dot-opacity-loader span:nth-child(3) {
+  animation: opacitychange 1s ease-in-out 0.66s infinite; }
+
+@keyframes opacitychange {
+  0%, 100% {
+    opacity: 0; }
+  60% {
+    opacity: 1; } }
+
+/* Flip square */
+.flip-square-loader {
+  -webkit-perspective: 120px;
+  -moz-perspective: 120px;
+  -ms-perspective: 120px;
+  perspective: 120px;
+  width: 100px;
+  height: 100px;
+  border-radius: 100%;
+  position: relative;
+  margin: 0 auto; }
+
+.flip-square-loader:before {
+  content: "";
+  position: absolute;
+  left: 25px;
+  top: 25px;
+  width: 50px;
+  height: 50px;
+  background-color: rgba(0, 210, 91, 0.7);
+  animation: flip 1s infinite; }
+
+@keyframes flip {
+  0% {
+    transform: rotate(0); }
+  50% {
+    transform: rotateY(180deg); }
+  100% {
+    transform: rotateY(180deg) rotateX(180deg); } }
+
+/* Moving square loader */
+.moving-square-loader {
+  width: 100px;
+  height: 100px;
+  border-radius: 100%;
+  position: relative;
+  margin: 0 auto; }
+
+.moving-square-loader:before {
+  content: "";
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  top: calc(50% - 10px);
+  left: 0px;
+  background-color: rgba(252, 66, 74, 0.7);
+  animation: rotatemove 1s infinite; }
+
+@keyframes rotatemove {
+  0% {
+    -webkit-transform: scale(1) translateX(0px);
+    -ms-transform: scale(1) translateX(0px);
+    -o-transform: scale(1) translateX(0px);
+    transform: scale(1) translateX(0px); }
+  100% {
+    -webkit-transform: scale(2) translateX(45px);
+    -ms-transform: scale(2) translateX(45px);
+    -o-transform: scale(2) translateX(45px);
+    transform: scale(2) translateX(45px); } }
+
+/* Preview */
+.preview-list .preview-item {
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-direction: row;
+  flex-direction: row;
+  -webkit-align-items: flex-start;
+  align-items: flex-start;
+  padding: 1rem 0rem;
+  font-size: .875rem; }
+  .preview-list .preview-item:last-child {
+    border-bottom: 0; }
+  .preview-list .preview-item .form-check {
+    margin-top: 8px;
+    margin-right: 1rem; }
+  .preview-list .preview-item .preview-thumbnail {
+    color: #ffffff;
+    position: relative; }
+    .preview-list .preview-item .preview-thumbnail img,
+    .preview-list .preview-item .preview-thumbnail .preview-icon {
+      width: 40px;
+      height: 40px;
+      text-align: center;
+      display: -webkit-flex;
+      display: flex;
+      -webkit-align-items: center;
+      align-items: center;
+      -webkit-justify-content: center;
+      justify-content: center; }
+      .preview-list .preview-item .preview-thumbnail img i,
+      .preview-list .preview-item .preview-thumbnail .preview-icon i {
+        font-size: 1.125rem;
+        margin: 0; }
+    .preview-list .preview-item .preview-thumbnail .badge {
+      border: 2px solid #ffffff;
+      border-radius: 100%;
+      bottom: 5px;
+      display: block;
+      height: 14px;
+      left: -5px;
+      padding: 0;
+      position: absolute;
+      width: 14px; }
+  .preview-list .preview-item .preview-item-content {
+    line-height: 1;
+    padding-left: 15px; }
+    .preview-list .preview-item .preview-item-content:first-child {
+      padding-left: 0; }
+    .preview-list .preview-item .preview-item-content p {
+      margin-bottom: 10px;
+      line-height: 1; }
+      .preview-list .preview-item .preview-item-content p .content-category {
+        font-family: 'source-sans-pro-semibold', sans-serif;
+        padding-right: 15px;
+        border-right: 1px solid #2c2e33; }
+    .rtl .preview-list .preview-item .preview-item-content {
+      padding-left: 0;
+      padding-right: 1rem;
+      margin-right: 0;
+      margin-left: auto; }
+  .preview-list .preview-item .preview-actions {
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-direction: row;
+    flex-direction: row; }
+    .preview-list .preview-item .preview-actions i {
+      width: 29px;
+      color: #e6e9ed;
+      height: 29px;
+      border: 2px solid #e6e9ed;
+      border-radius: 100%;
+      padding: 3px 6px;
+      display: inline-block; }
+      .preview-list .preview-item .preview-actions i:first-child {
+        margin-right: 10px; }
+
+.preview-list.comment-preview .preview-item {
+  padding: .87rem 0; }
+  .preview-list.comment-preview .preview-item:first-child {
+    padding-top: 0; }
+  .preview-list.comment-preview .preview-item p {
+    line-height: 27px; }
+
+.preview-list.bordered .preview-item {
+  border-bottom: 1px solid #2c2e33; }
+  .preview-list.bordered .preview-item:last-child {
+    border-bottom: 0; }
+
+.icon {
+  display: flex;
+  align-items: center;
+  justify-content: center; }
+  .icon.icon-box-primary {
+    width: 40px;
+    height: 37px;
+    background: rgba(0, 144, 231, 0.11);
+    border-radius: 7px;
+    color: #0090e7; }
+  .icon .icon-item {
+    font-size: 20px; }
+
+.icon {
+  display: flex;
+  align-items: center;
+  justify-content: center; }
+  .icon.icon-box-secondary {
+    width: 40px;
+    height: 37px;
+    background: rgba(228, 234, 236, 0.11);
+    border-radius: 7px;
+    color: #e4eaec; }
+  .icon .icon-item {
+    font-size: 20px; }
+
+.icon {
+  display: flex;
+  align-items: center;
+  justify-content: center; }
+  .icon.icon-box-success {
+    width: 40px;
+    height: 37px;
+    background: rgba(0, 210, 91, 0.11);
+    border-radius: 7px;
+    color: #FF0300; }
+  .icon .icon-item {
+    font-size: 20px; }
+
+.icon {
+  display: flex;
+  align-items: center;
+  justify-content: center; }
+  .icon.icon-box-info {
+    width: 40px;
+    height: 37px;
+    background: rgba(143, 95, 232, 0.11);
+    border-radius: 7px;
+    color: #8f5fe8; }
+  .icon .icon-item {
+    font-size: 20px; }
+
+.icon {
+  display: flex;
+  align-items: center;
+  justify-content: center; }
+  .icon.icon-box-warning {
+    width: 40px;
+    height: 37px;
+    background: rgba(255, 171, 0, 0.11);
+    border-radius: 7px;
+    color: #ffab00; }
+  .icon .icon-item {
+    font-size: 20px; }
+
+.icon {
+  display: flex;
+  align-items: center;
+  justify-content: center; }
+  .icon.icon-box-danger {
+    width: 40px;
+    height: 37px;
+    background: rgba(252, 66, 74, 0.11);
+    border-radius: 7px;
+    color: #fc424a; }
+  .icon .icon-item {
+    font-size: 20px; }
+
+.icon {
+  display: flex;
+  align-items: center;
+  justify-content: center; }
+  .icon.icon-box-light {
+    width: 40px;
+    height: 37px;
+    background: rgba(255, 255, 255, 0.11);
+    border-radius: 7px;
+    color: #ffffff; }
+  .icon .icon-item {
+    font-size: 20px; }
+
+.icon {
+  display: flex;
+  align-items: center;
+  justify-content: center; }
+  .icon.icon-box-dark {
+    width: 40px;
+    height: 37px;
+    background: rgba(13, 13, 13, 0.11);
+    border-radius: 7px;
+    color: #0d0d0d; }
+  .icon .icon-item {
+    font-size: 20px; }
+
+/* Tables */
+.table, .jsgrid .jsgrid-table {
+  margin-bottom: 0;
+  color: #6c7293; }
+  .table thead th, .jsgrid .jsgrid-table thead th {
+    border-top: 0;
+    border-bottom-width: 1px;
+    font-weight: 500;
+    color: #6c7293; }
+    .table thead th i, .jsgrid .jsgrid-table thead th i {
+      margin-left: 0.325rem; }
+  .table th, .jsgrid .jsgrid-table th,
+  .table td,
+  .jsgrid .jsgrid-table td {
+    vertical-align: middle;
+    font-size: 0.875rem;
+    line-height: 1;
+    white-space: nowrap; }
+    .table th img, .jsgrid .jsgrid-table th img,
+    .table td img,
+    .jsgrid .jsgrid-table td img {
+      width: 30px;
+      height: 30px;
+      border-radius: 100%; }
+    .table th .badge, .jsgrid .jsgrid-table th .badge,
+    .table td .badge,
+    .jsgrid .jsgrid-table td .badge {
+      margin-bottom: 0; }
+  .table.table-borderless, .jsgrid .table-borderless.jsgrid-table {
+    border: none; }
+    .table.table-borderless tr, .jsgrid .table-borderless.jsgrid-table tr,
+    .table.table-borderless td,
+    .jsgrid .table-borderless.jsgrid-table td,
+    .table.table-borderless th,
+    .jsgrid .table-borderless.jsgrid-table th {
+      border: none; }
+  .table .table-dark, .jsgrid .jsgrid-table .table-dark {
+    background: #212529; }
+  .table.table-contextual, .jsgrid .table-contextual.jsgrid-table {
+    color: #ffffff; }
+
+.nav-tabs .nav-link {
+  background: #000000;
+  color: #ffffff;
+  border-radius: 0;
+  border: 1px solid #2c2e33;
+  padding: .75rem 1.5rem; }
+  @media (max-width: 576px) {
+    .nav-tabs .nav-link {
+      padding: 0.3rem 0.5rem; } }
+
+.nav-tabs .nav-item:first-child .nav-link {
+  border-radius: 4px 0 0 0; }
+
+.nav-tabs .nav-item:last-child .nav-link {
+  border-radius: 0 4px 0 0; }
+
+.nav-tabs.nav-tabs-vertical, .nav-tabs.nav-tabs-vertical-custom {
+  border-bottom: 0; }
+  .nav-tabs.nav-tabs-vertical .nav-link.active, .nav-tabs.nav-tabs-vertical-custom .nav-link.active {
+    border-bottom-color: #2c2e33; }
+  .nav-tabs.nav-tabs-vertical .nav-item:first-child .nav-link, .nav-tabs.nav-tabs-vertical-custom .nav-item:first-child .nav-link {
+    border-radius: 4px 4px 0 0; }
+  .nav-tabs.nav-tabs-vertical .nav-item:last-child .nav-link, .nav-tabs.nav-tabs-vertical-custom .nav-item:last-child .nav-link {
+    border-radius: 0 0 4px 4px; }
+
+.nav-tabs.nav-tabs-vertical-custom {
+  background: #0090e7;
+  border-radius: 4px; }
+  .nav-tabs.nav-tabs-vertical-custom .nav-link {
+    background: transparent;
+    border-color: rgba(255, 255, 255, 0.2);
+    color: #00314e;
+    font-weight: 700;
+    padding: 1.75rem; }
+    .nav-tabs.nav-tabs-vertical-custom .nav-link.active {
+      color: #ffffff;
+      border-color: rgba(255, 255, 255, 0.2); }
+
+.nav-pills {
+  border-bottom: 1px solid #2c2e33;
+  padding-bottom: 1rem; }
+  .nav-pills .nav-link {
+    border: 1px solid #2c2e33;
+    padding: .5rem 1.5rem; }
+    @media (max-width: 576px) {
+      .nav-pills .nav-link {
+        padding: 0.3rem 0.5rem; } }
+  .nav-pills .nav-item {
+    margin-right: 1rem; }
+    @media (max-width: 576px) {
+      .nav-pills .nav-item {
+        margin-right: 0.5rem;
+        font-size: 0.675; } }
+  .nav-pills.nav-pills-vertical {
+    border-bottom: 0; }
+    .nav-pills.nav-pills-vertical .nav-item {
+      margin-right: 0;
+      margin-bottom: 1rem; }
+  .nav-pills.nav-pills-custom {
+    border-bottom: 0; }
+    .nav-pills.nav-pills-custom .nav-link {
+      border-radius: 20px;
+      padding: .5rem 2.5rem;
+      background: #8489ab;
+      color: #000; }
+      @media (max-width: 576px) {
+        .nav-pills.nav-pills-custom .nav-link {
+          padding: .3rem .5rem; } }
+      .nav-pills.nav-pills-custom .nav-link.active {
+        background: #fc424a;
+        color: #ffffff; }
+
+/* gradient pills */
+.nav-pills-primary .nav-link {
+  color: #0090e7; }
+  .nav-pills-primary .nav-link.active {
+    background: #0090e7; }
+
+.nav-pills-secondary .nav-link {
+  color: #e4eaec; }
+  .nav-pills-secondary .nav-link.active {
+    background: #e4eaec; }
+
+.nav-pills-success .nav-link {
+  color: #FF0300; }
+  .nav-pills-success .nav-link.active {
+    background: #FF0300; }
+
+.nav-pills-info .nav-link {
+  color: #8f5fe8; }
+  .nav-pills-info .nav-link.active {
+    background: #8f5fe8; }
+
+.nav-pills-warning .nav-link {
+  color: #ffab00; }
+  .nav-pills-warning .nav-link.active {
+    background: #ffab00; }
+
+.nav-pills-danger .nav-link {
+  color: #fc424a; }
+  .nav-pills-danger .nav-link.active {
+    background: #fc424a; }
+
+.nav-pills-light .nav-link {
+  color: #ffffff; }
+  .nav-pills-light .nav-link.active {
+    background: #ffffff; }
+
+.nav-pills-dark .nav-link {
+  color: #0d0d0d; }
+  .nav-pills-dark .nav-link.active {
+    background: #0d0d0d; }
+
+.tab-content {
+  border: 1px solid #2c2e33;
+  border-top: 0;
+  padding: 2rem 1rem;
+  text-align: justify; }
+  .tab-content.tab-content-vertical {
+    border-top: 1px solid #2c2e33; }
+  .tab-content.tab-content-vertical-custom {
+    border: 0;
+    padding-top: 0; }
+  .tab-content.tab-content-custom-pill {
+    border: 0;
+    padding-left: 0; }
+
+/* Tabs */
+.add-items {
+  margin-bottom: 1.5rem;
+  overflow: hidden; }
+  .add-items input[type="text"] {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    width: 100%;
+    background: transparent; }
+  .add-items .btn, .add-items .fc button, .fc .add-items button, .add-items .ajax-upload-dragdrop .ajax-file-upload, .ajax-upload-dragdrop .add-items .ajax-file-upload, .add-items .swal2-modal .swal2-buttonswrapper .swal2-styled, .swal2-modal .swal2-buttonswrapper .add-items .swal2-styled, .add-items .wizard > .actions a, .wizard > .actions .add-items a {
+    margin-left: .5rem; }
+    .rtl .add-items .btn, .rtl .add-items .fc button, .fc .rtl .add-items button, .rtl .add-items .ajax-upload-dragdrop .ajax-file-upload, .ajax-upload-dragdrop .rtl .add-items .ajax-file-upload, .rtl .add-items .swal2-modal .swal2-buttonswrapper .swal2-styled, .swal2-modal .swal2-buttonswrapper .rtl .add-items .swal2-styled, .rtl .add-items .wizard > .actions a, .wizard > .actions .rtl .add-items a {
+      margin-left: auto;
+      margin-right: .5rem; }
+
+.list-wrapper {
+  height: 100%;
+  max-height: 100%; }
+  .list-wrapper ul {
+    padding: 0;
+    text-align: left;
+    list-style: none;
+    margin-bottom: 0; }
+    .list-wrapper ul li {
+      font-size: .9375rem;
+      padding: .8rem 0;
+      border-bottom: 1px solid #2c2e33; }
+      .list-wrapper ul li:first-child {
+        border-bottom: none; }
+      .list-wrapper ul li .form-check {
+        max-width: 90%;
+        margin-top: .25rem;
+        margin-bottom: .25rem; }
+  .list-wrapper input[type="checkbox"] {
+    margin-right: 15px; }
+  .list-wrapper .remove {
+    cursor: pointer;
+    font-size: 1.125rem;
+    font-weight: 600;
+    width: 1.25rem;
+    height: 1.25rem;
+    line-height: 20px;
+    text-align: center; }
+  .list-wrapper .completed {
+    text-decoration: line-through;
+    text-decoration-color: #0090e7; }

@@ -1,0 +1,361 @@
+<!-- Created by: Danzz Coding | danzzcodingweb.vercel.app -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="My Rest Api Project">
+    <meta name="author" content="Danzz Coding">
+	<meta name="keywords" content="Rest Api Danzz Coding">
+
+	<link rel="preconnect" href="https://fonts.gstatic.com">
+
+	<link rel="canonical" href="https://demo-basic.adminkit.io/" />
+
+	<title>Danzz Api - Payment</title>
+    <link rel="shortcut icon" type="image/x-icon" src="images/icon.png">
+	<link rel="canonical" href="https://demo-basic.adminkit.io/" />
+	
+	<link rel="stylesheet" href="vendors/mdi/css/materialdesignicons.min.css">
+    <link rel="stylesheet" href="vendors/css/vendors.bundle.base.css">
+    <link rel="stylesheet" href="vendors/flag-icon-css/css/flag-icon.min.css">
+    <link rel="stylesheet" href="vendors/owl-carousel-2/owl.carousel.min.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Original+Surfer&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="vendors/owl-carousel-2/owl.theme.default.min.css">    
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    
+    <link href="vendors/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link href="vendors/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <link href="css/style.css" rel="stylesheet">
+    <link href="css/dashboard.css" rel="stylesheet">
+</head>
+
+<body id="page-top" class="blue-mode">
+    <div id="wrapper">
+   
+        <ul class="navbar-nav sidebar sidebar-light accordion" id="accordionSidebar">
+            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="/docs">
+                <img src="images/icon.png" class="rounded-circle shadow-4"style="width: 50px;" alt="Avatar" />
+                <div class="sidebar-brand-text mx-3">DANZZ API</div>
+            </a>
+            <hr class="sidebar-divider my-0">
+            <li class="nav-item active">
+                <a class="nav-link" href="/docs">
+                    <i class="fas fa-fw fa-home"></i>
+                    <span>Dashboard</span></a>
+            </li>
+            <hr class="sidebar-divider my-0">
+            <li class="nav-item active">
+                <a class="nav-link" href="/myprofile">
+                    <i class="fas fa-fw fa-user"></i>
+                    <span>Profile</span></a>
+            </li>
+            <hr class="sidebar-divider my-0">
+            <li class="nav-item active">
+                <a class="nav-link" href="/pricing">
+                    <i class="fas fa-fw fa-money"></i>
+                    <span>Pricing</span></a>
+            </li>
+            <hr class="sidebar-divider my-0">
+            <li class="nav-item active">
+                <a class="nav-link" href="/donation">
+                    <i class="fas fa-fw fa-coins"></i>
+                    <span>Donation</span></a>
+            </li>
+            <hr class="sidebar-divider my-0">
+            <li class="nav-item active">
+                <a class="nav-link" href="https://youtube.com/c/DanzzCoding">
+                    <i class="fas fa-fw fa-code"></i>
+                    <span>Source Code</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseService" aria-expanded="true" aria-controls="collapseBootstrap">
+                    <i class="fas fa-fw fa-phone"></i>
+                    <span>Customer Service</span>
+                </a>
+                <div id="collapseService" class="collapse" aria-labelledby="headingBootstrap" data-parent="#accordionSidebar">
+                    <div class="py-2 collapse-inner rounded">
+                        <h6 class="collapse-header">Customer Service</h6>
+                        <a class="collapse-item" href="https://wa.me/6288296339947?text=hallo!" target="_blank">Cs WA 24 Jam</a>
+                        <a class="collapse-item" href="https://chat.whatsapp.com/Gq71DUTFOhRE9efPYyobYu" target="_blank">Cs Group WA 24 Jam</a>                        
+
+                    </div>
+                </div>
+            </li>
+            <hr class="sidebar-divider">
+            <div class="sidebar-heading">
+                Info API
+            </div>
+            <hr class="sidebar-divider my-0">
+            <li class="nav-item active">
+                <a class="nav-link" href="/info/api">
+                    <i class="fas fa-fw fa-info"></i>
+                    <span>Info API</span></a>
+            </li>            
+            <hr class="sidebar-divider">
+            <div class="sidebar-heading">
+                Main API
+            </div>
+            <hr class="sidebar-divider my-0">
+            <li class="nav-item active">
+                <a class="nav-link" href="/main/statistic">
+                    <i class="fas fa-fw fa-thermometer-three-quarters"></i>
+                    <span>Statistic</span></a>
+            </li>
+            <hr class="sidebar-divider my-0">
+            <li class="nav-item active">
+                <a class="nav-link" href="/main/runtime">
+                    <i class="fas fa-fw fa-clock"></i>
+                    <span>Runtime</span></a>
+            </li>
+                        
+            <hr class="sidebar-divider">
+            <div class="sidebar-heading">
+                Contact
+            </div>
+            <li class="nav-item">
+                <a class="nav-link" href="https://github.com/Danzzxcodes">
+                    <i class="fab fa-fw fa-github">&nbsp;Github</i>
+                    <span></span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="https://youtube.com/c/DanzzCoding">
+                    <i class="fab fa-fw fa-youtube">&nbsp;Youtube</i>
+                    <span></span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="https://instagram.com/ramdani_real01">
+                    <i class="fab fa-fw fa-instagram">&nbsp;Instagram</i>
+                    <span></span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="https://facebook.com/profile.php?id=100055274594084">
+                    <i class="fab fa-fw fa-facebook">&nbsp;Facebook</i>
+                    <span></span>
+                </a>
+            </li>
+           <li class="nav-item">
+                <a class="nav-link" href="https://wa.me/6288296339947">
+                    <i class="fab fa-fw fa-whatsapp">&nbsp;WhatsApp</i>
+                    <span></span>
+                </a>
+            </li>
+            <hr class="sidebar-divider">
+        </ul>
+ 
+        <div id="content-wrapper" class="d-flex flex-column">
+            <div id="content">
+                            
+                <nav class="navbar navbar-expand navbar-light bg-navbar topbar mb-4 static-top">
+          <button id="sidebarToggleTop" class="btn btn-link rounded-circle mr-3">
+            <i class="fa fa-bars"></i>
+          </button><b>DONATION</b>
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item dropdown no-arrow">             
+            <li class="nav-item dropdown no-arrow mx-1">
+              <a class="nav-link dropdown-toggle" href="#" id="messagesDropdown" role="button" data-toggle="dropdown"
+                aria-haspopup="true" aria-expanded="false">
+                <i class="fas fa-bell fa-fw"></i>
+                <span class="badge badge-danger badge-counter">1</span>
+              </a>
+                <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list" aria-labelledby="notificationDropdown">
+                  <h6 class="p-3 mb-0"><b>Notification</h6></b>
+                  <div class="dropdown-divider"></div>
+                  <a class="dropdown-item preview-item">
+                    <div class="preview-thumbnail">
+                      <div class="preview-icon bg-blue rounded-circle">
+                        <i class="mdi mdi-bell text"></i>
+                      </div>
+                    </div>
+                    <div class="preview-item-content">
+                      <h8 class="preview-subject mb-1"><b>Subscribe</h8></b>
+                      <p class="text-muted ellipsis mb-0">Don't Forget Subscribe Yt: DanzzCoding</p>
+                    </div>
+                  </a>
+              	</li>
+            <li class="nav-item dropdown no-arrow mx-1">
+              <a class="nav-link dropdown-toggle" href="" id="messagesDropdown" role="button" data-toggle="dropdown"
+                aria-haspopup="true" aria-expanded="false">
+                <i class="fas fa-list fa-fw"></i>
+                <span class="badge badge-danger badge-counter">4</span>
+              </a>
+              <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in"
+                aria-labelledby="messagesDropdown">
+                <h6 class="dropdown-header">
+                  Progress Skils
+                </h6>
+                <a class="dropdown-item align-items-center">
+                  <div class="mb-3">
+                    <div class="small text-gray-500">Html
+                      <div class="small float-right"><b>85%</b></div>
+                    </div>
+                    <div class="progress" style="height: 12px;">
+                      <div class="progress-bar bg-blue" role="progressbar" style="width: 85%" aria-valuenow="85"
+                        aria-valuemin="0" aria-valuemax="100"></div>
+                    </div>
+                  </div>
+                </a>
+                <a class="dropdown-item align-items-center">
+                  <div class="mb-3">
+                    <div class="small text-gray-500">Css
+                      <div class="small float-right"><b>65%</b></div>
+                    </div>
+                    <div class="progress" style="height: 12px;">
+                      <div class="progress-bar bg-danger" role="progressbar" style="width: 65%" aria-valuenow="65"
+                        aria-valuemin="0" aria-valuemax="100"></div>
+                    </div>
+                  </div>
+                </a>
+                <a class="dropdown-item align-items-center">
+                  <div class="mb-3">
+                    <div class="small text-gray-500">JavaScript
+                      <div class="small float-right"><b>90%</b></div>
+                    </div>
+                    <div class="progress" style="height: 12px;">
+                      <div class="progress-bar bg-warning" role="progressbar" style="width: 90%" aria-valuenow="90"
+                        aria-valuemin="0" aria-valuemax="100"></div>
+                    </div>
+                  </div>
+                </a>
+                <a class="dropdown-item align-items-center">
+                  <div class="mb-3">
+                    <div class="small text-gray-500">Php
+                      <div class="small float-right"><b>60%</b></div>
+                    </div>
+                    <div class="progress" style="height: 12px;">
+                      <div class="progress-bar bg-blue2" role="progressbar" style="width: 60%" aria-valuenow="60"
+                        aria-valuemin="0" aria-valuemax="100"></div>
+                    </div>
+                  </div>
+                </a>
+              </div>
+            </li>
+            <div class="topbar-divider d-none d-sm-block"></div>
+            <li class="nav-item dropdown no-arrow">
+              <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown"
+                aria-haspopup="true" aria-expanded="false">
+                <img class="img-profile rounded-circle" src="images/icon.png" style="max-width: 60px">
+                <span class="ml-2 d-none d-lg-inline text-yellow small">Danzz Coding</span>
+                <a href="/login">
+                <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in"
+                aria-labelledby="messagesDropdown">
+                <h6 class="dropdown-header">
+                  LOG OUT
+                </h6>                
+                <a href="/myprofile"><h6 class="dropdown-header">
+                  My Profile
+                </h6>
+              </a>              
+              </a>
+              </a>
+              </div>
+              </div>
+            </li>
+          </ul>
+        </nav>
+        
+	<div class="col-xl-3 col-md-6 mb-4">                            
+        	<div class="card-body">
+            	<div class="row no-gutters align-items-center">
+                	<div class="col mr-2">
+							<div class="card card-chart">
+								<div class="card-body">
+								<h3 style="margin-bottom: 0">
+							</h3>
+						<div class="card-body">
+						<h3><b>DONASI SEIHKLASNYA!</b></h3>
+						<h4><b>QRIS ALL PAYMENT</b></h4>
+					</div>
+					<img src="https://telegra.ph/file/ce41f880f591f9e13117e.jpg" class="rounded-shadow-4"style="width: 300px;" alt="Qris All Payment" />
+				</div>
+				<button type="submit" class="btn btn-primary">Scan Now</button>
+			</div>
+		</div>
+		</div>
+		</div>
+		
+        	<div class="card-body">
+            	<div class="row no-gutters align-items-center">
+                	<div class="col mr-2">
+							<div class="card card-chart">
+								<div class="card-body">
+								<h3 style="margin-bottom: 0">
+							</h3>
+						<div class="card-body">
+					</div>
+					<div>
+					<h4><b>E-WALLETS<b></h4>
+					<img src="https://telegra.ph/file/b89b93147d600b4241d95.jpg" class="rounded-circle shadow-4"style="width: 30px;" alt="Avatar" />
+					<span> Dana: 089512545999</span>
+					<div>
+						<div>
+					<img src="https://telegra.ph/file/bf2e29e770eee74e7e5c7.jpg" class="rounded-circle shadow-4"style="width: 30px;" alt="Avatar" />
+					<span> Gopay: 089512545999</span>
+					</div>
+				</div>
+			</div>
+		</div>
+		</div>
+		</div>
+		</from>
+		
+		<div class="card-body">
+            	<div class="row no-gutters align-items-center">
+                	<div class="col mr-2">
+							<div class="card card-chart">
+								<div class="card-body">
+								<h3 style="margin-bottom: 0">
+							</h3>
+						<div class="card-body">
+						<from action="wa.me/6288296339947">
+						<p></p>
+						<h4><b>SISTEM TRANSFER</b></h4>
+						<p>- BUKA APLIKASI PEMBAYARAN</p>
+						<p>- SCAN QRIS/MASUKAN NOPE</p>
+						<p>- ISI NOMINAL</p>
+						<p>- SS RIWAYAT TF</p>
+						<p>- SEND BUKTI TF (SSAN TADI) KE <a href="https://wa.me/6288296339947">WHATSAPP</a>
+					</div>
+				</div>
+				<button type="submit" class="btn btn-primary">Ok</button>
+			</div>
+			</from>
+		</div>
+		</div>
+		</div>
+		</div>
+		</div>
+		
+		</div>
+		
+		<footer class="sticky-footer">
+                <div class="container my-auto">
+                    <div class="copyright text-center my-auto">
+                        Copyright © <span id="Years">2022</span> by:
+                        <a href="/donation" target="_blank" style="color: rgb(255, 234, 0);">Danzz Coding</a>
+                        </span>
+                    </div>
+                </div>
+            </footer>
+       
+        </div>
+    </div>
+
+    
+    <a class="scroll-to-top rounded" href="#page-top">
+        <i class="fas fa-angle-up"></i>
+    </a>
+	<script src="vendors/jquery/jquery.min.js"></script>
+    <script src="vendors/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="vendors/jquery-easing/jquery.easing.min.js"></script>
+    <script src="js/change.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/dashboard.js"></script>    
+</body>
+</html>
