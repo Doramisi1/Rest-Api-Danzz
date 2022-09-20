@@ -20,7 +20,7 @@
 <a href="https://github.com/Danzzxcodes/danzz-api/graphs/commit-activity"><img height="20" src="https://img.shields.io/badge/Maintained-No-red.svg"></a>&nbsp;&nbsp;
 </p>
 
-* ## TUTORIALS
+## TUTORIALS
 
 Forks
  [`Repo`](https://github.com/Danzzxcodes/danzz-api/fork)<br>
@@ -29,12 +29,12 @@ DEPLOY TO HEROKU
 
 [![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/)
 
-* ## SETTING 
+## SETTING 
 File Setting [`set.js`](https://github.com/Danzzxcodes/danzz-api/edit/main/set.js)<br>
 
-* ## FEATURE LIST
+## FEATURE LIST
 
-| FEATURES |✔|
+| FEATURES ACTIVE |✔|
 | ------------- | ------------- |
 | Downloader |✔️|
 | Asupan  |✔️|
