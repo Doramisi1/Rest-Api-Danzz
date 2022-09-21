@@ -17,30 +17,6 @@ var listkey = ["danzz","9286c1a775","9267ic6a0f1","927j59de9c","921n567ea6","921
 var listkeyprem = ["danzz"];
 
 
-// Bug Report
-router.get('/bugreport', async (req, res, next) => {
-	var text = req.query.text
-
-	if(!text) return res.json(loghandler.nottext)
-	
-	var teks = text
-	if (teks) {
-	json = JSON.stringify({
-		status: true,
-		creator: 'Danzz Coding',
-		result: {
-         apikey: teks
-		},
-	})
-} else {
-	json = JSON.stringify({
-		status: false,
-		apikey: 'Not Found'
-	})
-}
-res.send(JSON.parse(json))
-})
-
 // Check Apikey
 router.get('/checkapikey', async (req, res, next) => {
 	var apikey = req.query.apikey
