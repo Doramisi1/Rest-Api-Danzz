@@ -708,6 +708,88 @@ router.get('/search/youtube', async (req, res, next) => {
   res.json(loghandler.notapikey)
 }
 })
+
+router.get('/search/xxxxvideo', async(req, res, next) => {
+  const query = req.query.query
+  const apikey = req.query.apikey
+  
+  if(!query) return res.json(loghandler.notquery)
+  if(!apikey) return res.json(loghandler.notapikey)
+  
+  if(listkeyprem.includes(apikey)){
+    fetch(encodeURI(`http://kocakz.herokuapp.com/api/media/xvideo/search?query=${query}`))
+    .then(response => response.json())
+        .then(hasil => {
+
+        var result = hasil.result;
+             res.json({
+                 status : true,
+                 creator : `${creator}`,
+                 result
+             })
+         })
+         .catch(e => {
+         	res.json(loghandler.error)
+})
+} else {
+  res.json(loghandler.notapikey)
+}
+})
+
+router.get('/search/xnxxvideo', async(req, res, next) => {
+  const query = req.query.query
+  const apikey = req.query.apikey
+  
+  if(!query) return res.json(loghandler.notquery)
+  if(!apikey) return res.json(loghandler.notapikey)
+  
+  if(listkeyprem.includes(apikey)){
+    fetch(encodeURI(`http://kocakz.herokuapp.com/api/media/xnxx/search?query=${query}`))
+    .then(response => response.json())
+        .then(hasil => {
+
+        var result = hasil.result;
+             res.json({
+                 status : true,
+                 creator : `${creator}`,
+                 result
+             })
+         })
+         .catch(e => {
+         	res.json(loghandler.error)
+})
+} else {
+  res.json(loghandler.notapikey)
+}
+})
+
+router.get('/search/pornhub', async(req, res, next) => {  
+  const query = req.query.query
+  const apikey = req.query.apikey
+  
+  if(!query) return res.json(loghandler.notquery)
+  if(!apikey) return res.json(loghandler.notapikey)
+  
+  if(listkeyprem.includes(apikey)){
+    fetch(encodeURI(`http://kocakz.herokuapp.com/api/media/pornhub/search?query=${query}`))
+    .then(response => response.json())
+        .then(hasil => {
+
+        var result = hasil.res;
+             res.json({
+                 status : true,
+                 creator : `${creator}`,
+                 result
+             })
+         })
+         .catch(e => {
+         	res.json(loghandler.error)
+})
+} else {
+  res.json(loghandler.notapikey)
+}
+})
+
 router.get('/search/pinterest', async (req, res, next) => {
 	var query = req.query.query
 	var apikey = req.query.apikey
@@ -2092,6 +2174,87 @@ res.send(body)
 }
 })
 
+// Wallpaper
+router.get('/wallpaper/random', async (req, res, next) => {
+	var apikey = req.query.apikey
+	if (!apikey) return res.json(loghandler.notapikey)
+	if(listkey.includes(apikey)){
+	
+	let data = await fetchJson(`https://myselfff.herokuapp.com/docs/wallpaper/wallrandom`)
+	res.json({
+	status: true,
+	creator: `${creator}`,
+	result: data.list
+	})
+} else {
+  res.json(loghandler.notapikey)
+}
+})
+
+router.get('/wallpaper/ml', async (req, res, next) => {
+	var apikey = req.query.apikey
+	if (!apikey) return res.json(loghandler.notapikey)
+	if(listkey.includes(apikey)){
+	
+	let data = await fetchJson(`https://myselfff.herokuapp.com/docs/wallpaper/wallml`)
+	res.json({
+	status: true,
+	creator: `${creator}`,
+	result: data.list
+	})
+} else {
+  res.json(loghandler.notapikey)
+}
+})
+
+router.get('/wallpaper/pubg', async (req, res, next) => {
+	var apikey = req.query.apikey
+	if (!apikey) return res.json(loghandler.notapikey)
+	if(listkey.includes(apikey)){
+	
+	let data = await fetchJson(`https://myselfff.herokuapp.com/docs/wallpaper/wallpubg`)
+	res.json({
+	status: true,
+	creator: `${creator}`,
+	result: data.list
+	})
+} else {
+  res.json(loghandler.notapikey)
+}
+})
+
+router.get('/wallpaper/neon', async (req, res, next) => {
+	var apikey = req.query.apikey
+	if (!apikey) return res.json(loghandler.notapikey)
+	if(listkey.includes(apikey)){
+	
+	let data = await fetchJson(`https://myselfff.herokuapp.com/docs/wallpaper/wallneon`)
+	res.json({
+	status: true,
+	creator: `${creator}`,
+	result: data.list
+	})
+} else {
+  res.json(loghandler.notapikey)
+}
+})
+
+router.get('/wallpaper/code', async (req, res, next) => {
+	var apikey = req.query.apikey
+	if (!apikey) return res.json(loghandler.notapikey)
+	if(listkey.includes(apikey)){
+	
+	let data = await fetchJson(`https://myselfff.herokuapp.com/docs/wallpaper/wallcode`)
+	res.json({
+	status: true,
+	creator: `${creator}`,
+	result: data.list
+	})
+} else {
+  res.json(loghandler.notapikey)
+}
+})
+
 // Game
 router.get('/game/asahotak', async (req, res, next) => {
     var apikey = req.query.apikey
@@ -2214,29 +2377,6 @@ router.get('/game/pantun', async (req, res, next) => {
 	status: true,
 	creator: `${creator}`,
 	result: result
-})
-} else {
-  res.json(loghandler.notapikey)
-}
-})
-router.get('/game/ramaljadian', async (req, res, next) => {
-    var date = req.query.date
-    var month = req.query.month
-    var years = req.query.years
-    var apikey = req.query.apikey
-	
-	if(listkey.includes(apikey)){
-	if(!date) return res.json({ status : false, creator : `${creator}`, message : "Enter Date"})
-	if(!month) return res.json({ status : false, creator : `${creator}`, message : "Enter Month"})
-	if(!years) return res.json({ status : false, creator : `${creator}`, message : "Enter Years"})
-	if(!apikey) return res.json(loghandler.notapikey)
-	
-	let data = await fetchJson(`https://api-yogipw.herokuapp.com/api/fun/ramaljadian?tanggal=${date}&bulan=${month}&tahun=${years}`)
-	
-  res.json({
-	status: true,
-	creator: `${creator}`,
-	result: data
 })
 } else {
   res.json(loghandler.notapikey)
@@ -3068,8 +3208,302 @@ router.get('/random/coffee', async (req, res, next) => {
 }
 })
 
+router.get('/random/balikhuruf', async (req, res, next) => {
+	var text = req.query.text
+	if (!text ) return res.json(loghandler.nottext)
+	
+	let data = await fetchJson(`https://myselfff.herokuapp.com/docs/random/balikhuruf?query=${text}`)
+	if (!data.result ) return res.json(loghandler.notfound)
+	
+	var apikey = req.query.apikey
+	if (!apikey) return res.json(loghandler.notapikey)
+	if(listkey.includes(apikey)){
+	
+	res.json({
+	status: true,
+	creator: `${creator}`,
+	result: data.result
+	})
+} else {
+  res.json(loghandler.notapikey)
+}
+})
+
+router.get('/random/balikangka', async (req, res, next) => {
+	var text = req.query.text
+	if (!text ) return res.json(loghandler.nottext)
+	
+	let data = await fetchJson(`https://myselfff.herokuapp.com/docs/random/balikangka?query=${text}`)
+	if (!data.result ) return res.json(loghandler.notfound)
+	
+	var apikey = req.query.apikey
+	if (!apikey) return res.json(loghandler.notapikey)
+	if(listkey.includes(apikey)){
+	
+	res.json({
+	status: true,
+	creator: `${creator}`,
+	result: data.result
+	})
+} else {
+  res.json(loghandler.notapikey)
+}
+})
+
+router.get('/random/bilangangka', async (req, res, next) => {
+	var text = req.query.text
+	if (!text ) return res.json(loghandler.nottext)
+	
+	let data = await fetchJson(`https://myselfff.herokuapp.com/docs/random/bilangangka?query=${text}`)
+	if (!data.result ) return res.json(loghandler.notfound)
+	
+	var apikey = req.query.apikey
+	if (!apikey) return res.json(loghandler.notapikey)
+	if(listkey.includes(apikey)){
+	
+	res.json({
+	status: true,
+	creator: `${creator}`,
+	result: data.result
+	})
+} else {
+  res.json(loghandler.notapikey)
+}
+})
+
+router.get('/random/besarkecil', async (req, res, next) => {
+	var text = req.query.text
+	if (!text ) return res.json(loghandler.nottext)
+	
+	let data = await fetchJson(`https://myselfff.herokuapp.com/docs/random/besarkecil?query=${text}`)
+	if (!data.result ) return res.json(loghandler.notfound)
+	
+	var apikey = req.query.apikey
+	if (!apikey) return res.json(loghandler.notapikey)
+	if(listkey.includes(apikey)){
+	
+	res.json({
+	status: true,
+	creator: `${creator}`,
+	result: data.result
+	})
+} else {
+  res.json(loghandler.notapikey)
+}
+})
+
+router.get('/random/heleh', async (req, res, next) => {
+	var text = req.query.text
+	if (!text ) return res.json(loghandler.nottext)
+	
+	let data = await fetchJson(`https://myselfff.herokuapp.com/docs/random/heleh?query=${text}`)
+	if (!data.result ) return res.json(loghandler.notfound)
+	
+	var apikey = req.query.apikey
+	if (!apikey) return res.json(loghandler.notapikey)
+	if(listkey.includes(apikey)){
+	
+	res.json({
+	status: true,
+	creator: `${creator}`,
+	result: data.result
+	})
+} else {
+  res.json(loghandler.notapikey)
+}
+})
+
+router.get('/random/huluh', async (req, res, next) => {
+	var text = req.query.text
+	if (!text ) return res.json(loghandler.nottext)
+	
+	let data = await fetchJson(`https://myselfff.herokuapp.com/docs/random/huluh?query=${text}`)
+	if (!data.result ) return res.json(loghandler.notfound)
+	
+	var apikey = req.query.apikey
+	if (!apikey) return res.json(loghandler.notapikey)
+	if(listkey.includes(apikey)){
+	
+	res.json({
+	status: true,
+	creator: `${creator}`,
+	result: data.result
+	})
+} else {
+  res.json(loghandler.notapikey)
+}
+})
+
+router.get('/random/hilih', async (req, res, next) => {
+	var text = req.query.text
+	if (!text ) return res.json(loghandler.nottext)
+	
+	let data = await fetchJson(`https://myselfff.herokuapp.com/docs/random/hilih?query=${text}`)
+	if (!data.result ) return res.json(loghandler.notfound)
+	
+	var apikey = req.query.apikey
+	if (!apikey) return res.json(loghandler.notapikey)
+	if(listkey.includes(apikey)){
+	
+	res.json({
+	status: true,
+	creator: `${creator}`,
+	result: data.result
+	})
+} else {
+  res.json(loghandler.notapikey)
+}
+})
+
+router.get('/random/halah', async (req, res, next) => {
+	var text = req.query.text
+	if (!text ) return res.json(loghandler.nottext)
+	
+	let data = await fetchJson(`https://myselfff.herokuapp.com/docs/random/halah?query=${text}`)
+	if (!data.result ) return res.json(loghandler.notfound)
+	
+	var apikey = req.query.apikey
+	if (!apikey) return res.json(loghandler.notapikey)
+	if(listkey.includes(apikey)){
+	
+	res.json({
+	status: true,
+	creator: `${creator}`,
+	result: data.result
+	})
+} else {
+  res.json(loghandler.notapikey)
+}
+})
+
+router.get('/random/kapital', async (req, res, next) => {
+	var text = req.query.text
+	if (!text ) return res.json(loghandler.nottext)
+	
+	let data = await fetchJson(`https://myselfff.herokuapp.com/docs/random/kapital?query=${text}`)
+	if (!data.result ) return res.json(loghandler.notfound)
+	
+	var apikey = req.query.apikey
+	if (!apikey) return res.json(loghandler.notapikey)
+	if(listkey.includes(apikey)){
+	
+	res.json({
+	status: true,
+	creator: `${creator}`,
+	result: data.result
+	})
+} else {
+  res.json(loghandler.notapikey)
+}
+})
+
+router.get('/random/katajago', async (req, res, next) => {
+	var text = req.query.text
+	if (!text ) return res.json(loghandler.nottext)
+	
+	let data = await fetchJson(`https://myselfff.herokuapp.com/docs/random/katajago?query=${text}`)
+	if (!data.result ) return res.json(loghandler.notfound)
+	
+	var apikey = req.query.apikey
+	if (!apikey) return res.json(loghandler.notapikey)
+	if(listkey.includes(apikey)){
+	
+	res.json({
+	status: true,
+	creator: `${creator}`,
+	result: data.result
+	})
+} else {
+  res.json(loghandler.notapikey)
+}
+})
+
+router.get('/random/resepmasakan', async (req, res, next) => {
+	var text = req.query.text
+	if (!text ) return res.json(loghandler.nottext)
+	
+	let data = await fetchJson(`https://myselfff.herokuapp.com/docs/random/resepmasakan?query=${text}`)
+	if (!data.result ) return res.json(loghandler.notfound)
+	
+	var apikey = req.query.apikey
+	if (!apikey) return res.json(loghandler.notapikey)
+	if(listkey.includes(apikey)){
+	
+	res.json({
+	status: true,
+	creator: `${creator}`,
+	result: data.result
+	})
+} else {
+  res.json(loghandler.notapikey)
+}
+})
+
+router.get('/random/jumblahhuruf', async (req, res, next) => {
+	var text = req.query.text
+	if (!text ) return res.json(loghandler.nottext)
+	
+	let data = await fetchJson(`https://myselfff.herokuapp.com/docs/random/jumlahhuruf?query=${text}`)
+	if (!data.result ) return res.json(loghandler.notfound)
+	
+	var apikey = req.query.apikey
+	if (!apikey) return res.json(loghandler.notapikey)
+	if(listkey.includes(apikey)){
+	
+	res.json({
+	status: true,
+	creator: `${creator}`,
+	result: data.result
+	})
+} else {
+  res.json(loghandler.notapikey)
+}
+})
+
+router.get('/random/jumblahangka', async (req, res, next) => {
+	var text = req.query.text
+	if (!text ) return res.json(loghandler.nottext)
+	
+	let data = await fetchJson(`https://myselfff.herokuapp.com/docs/random/jumlahangka?query=${text}`)
+	if (!data.result ) return res.json(loghandler.notfound)
+	
+	var apikey = req.query.apikey
+	if (!apikey) return res.json(loghandler.notapikey)
+	if(listkey.includes(apikey)){
+	
+	res.json({
+	status: true,
+	creator: `${creator}`,
+	result: data.result
+	})
+} else {
+  res.json(loghandler.notapikey)
+}
+})
+
+router.get('/random/detailhero', async (req, res, next) => {
+	var text = req.query.hero
+	if (!text ) return res.json(loghandler.nottext)
+	
+	let data = await fetchJson(`https://myselfff.herokuapp.com/docs/random/heroml?query=${text}`)
+	if (!data.result ) return res.json(loghandler.notfound)
+	
+	var apikey = req.query.apikey
+	if (!apikey) return res.json(loghandler.notapikey)
+	if(listkey.includes(apikey)){
+	
+	res.json({
+	status: true,
+	creator: `${creator}`,
+	result: data.result
+	})
+} else {
+  res.json(loghandler.notapikey)
+}
+})
+
 // Stalk
-router.get('/stalk/github', async (req, res, next) => {
+router.get('/stalker/github', async (req, res, next) => {
 	var username = req.query.username
 	var apikey = req.query.apikey
 	
@@ -3091,7 +3525,7 @@ router.get('/stalk/github', async (req, res, next) => {
 }
 })
 
-router.get('/stalk/instagram', async (req, res, next) => {
+router.get('/stalker/tiktok', async (req, res, next) => {
 	var username = req.query.username
 	var apikey = req.query.apikey
 	
@@ -3100,20 +3534,20 @@ router.get('/stalk/instagram', async (req, res, next) => {
 	if (!username) return res.json(loghandler.notid)
 	if (!apikey) return res.json(loghandler.notapikey)
 	
-	let igstalk = await fetchJson(`https://api.instagram.com/users/${username}`)
-	if (!igstalk.login) return res.json(loghandler.notfound)
+	let ttstalk = await fetchJson(`https://zenzapis.xyz/stalker/tiktok?username=${username}&apikey=sonelstore`)
+	if (!ttstalk.result) return res.json(loghandler.notfound)
 
 	res.json({
 	status: true,
 	creator: `${creator}`,
-	result: igstalk
+	result: ttstalk.result
 	})
 } else {
   res.json(loghandler.notapikey)
 }
 })
 
-router.get('/stalk/facebook', async (req, res, next) => {
+router.get('/stalker/instagram', async (req, res, next) => {
 	var username = req.query.username
 	var apikey = req.query.apikey
 	
@@ -3122,20 +3556,20 @@ router.get('/stalk/facebook', async (req, res, next) => {
 	if (!username) return res.json(loghandler.notid)
 	if (!apikey) return res.json(loghandler.notapikey)
 	
-	let fbstalk = await fetchJson(`https://api.facebook.com/users/${username}`)
-	if (!fbstalk.login) return res.json(loghandler.notfound)
+	let igstalk = await fetchJson(`https://zenzapis.xyz/stalker/ig?username=${username}&apikey=sonelstore`)
+	if (!igstalk.result) return res.json(loghandler.notfound)
 
 	res.json({
 	status: true,
 	creator: `${creator}`,
-	result: fbstalk
+	result: igstalk.result
 	})
 } else {
   res.json(loghandler.notapikey)
 }
 })
 
-router.get('/stalk/twitter', async (req, res, next) => {
+router.get('/stalker/npm', async (req, res, next) => {
 	var username = req.query.username
 	var apikey = req.query.apikey
 	
@@ -3144,13 +3578,346 @@ router.get('/stalk/twitter', async (req, res, next) => {
 	if (!username) return res.json(loghandler.notid)
 	if (!apikey) return res.json(loghandler.notapikey)
 	
-	let twstalk = await fetchJson(`https://api.twitter.com/users/${username}`)
-	if (!twstalk.login) return res.json(loghandler.notfound)
+	let npmstalk = await fetchJson(`https://registry.npmjs.org/${username}`)
 
 	res.json({
 	status: true,
 	creator: `${creator}`,
-	result: twstalk
+	result: npmstalk
+	})
+} else {
+  res.json(loghandler.notapikey)
+}
+})
+
+router.get('/stalker/nickhago', async (req, res, next) => {
+	var id = req.query.id
+	var apikey = req.query.apikey
+	
+	if(listkey.includes(apikey)){
+	
+	if (!id) return res.json(loghandler.notid)
+	if (!apikey) return res.json(loghandler.notapikey)
+	
+	let hg = await fetchJson(`https://zenzapis.xyz/stalker/nickhago?apikey=sonelstore&query=${id}`)
+	if (!hg.result) return res.json(loghandler.notfound)
+
+	res.json({
+	status: true,
+	creator: `${creator}`,
+	result: hg.result
+	})
+} else {
+  res.json(loghandler.notapikey)
+}
+})
+
+router.get('/stalker/nickccfun', async (req, res, next) => {
+	var id = req.query.id
+	var apikey = req.query.apikey
+	
+	if(listkey.includes(apikey)){
+	
+	if (!id) return res.json(loghandler.notid)
+	if (!apikey) return res.json(loghandler.notapikey)
+	
+	let cf = await fetchJson(`https://zenzapis.xyz/stalker/nickcocofun?apikey=sonelstore&query=${id}`)
+	if (!cf.result) return res.json(loghandler.notfound)
+
+	res.json({
+	status: true,
+	creator: `${creator}`,
+	result: cf.result
+	})
+} else {
+  res.json(loghandler.notapikey)
+}
+})
+
+router.get('/stalker/nickbgl', async (req, res, next) => {
+	var id = req.query.id
+	var apikey = req.query.apikey
+	
+	if(listkey.includes(apikey)){
+	
+	if (!id) return res.json(loghandler.notid)
+	if (!apikey) return res.json(loghandler.notapikey)
+	
+	let bgl = await fetchJson(`https://zenzapis.xyz/stalker/nickbigolive?apikey=sonelstore&query=${id}`)
+	if (!bgl.result) return res.json(loghandler.notfound)
+
+	res.json({
+	status: true,
+	creator: `${creator}`,
+	result: bgl.result
+	})
+} else {
+  res.json(loghandler.notapikey)
+}
+})
+
+router.get('/stalker/nicknmtv', async (req, res, next) => {
+	var id = req.query.id
+	var apikey = req.query.apikey
+	
+	if(listkey.includes(apikey)){
+	
+	if (!id) return res.json(loghandler.notid)
+	if (!apikey) return res.json(loghandler.notapikey)
+	
+	let nmtv = await fetchJson(`https://zenzapis.xyz/stalker/nicknimotv?apikey=soneletore&query=${id}`)
+	if (!nmtv.result) return res.json(loghandler.notfound)
+
+	res.json({
+	status: true,
+	creator: `${creator}`,
+	result: nmtv.result
+	})
+} else {
+  res.json(loghandler.notapikey)
+}
+})
+
+router.get('/stalker/nickpubg', async (req, res, next) => {
+	var id = req.query.id
+	var apikey = req.query.apikey
+	
+	if(listkey.includes(apikey)){
+	
+	if (!id) return res.json(loghandler.notid)
+	if (!apikey) return res.json(loghandler.notapikey)
+	
+	let pubg = await fetchJson(`https://zenzapis.xyz/stalker/nickpubg?apikey=sonelstore&query=${id}`)
+	if (!pubg.result) return res.json(loghandler.notfound)
+
+	res.json({
+	status: true,
+	creator: `${creator}`,
+	result: pubg.result
+	})
+} else {
+  res.json(loghandler.notapikey)
+}
+})
+
+router.get('/stalker/nickff', async (req, res, next) => {
+	var id = req.query.id
+	var apikey = req.query.apikey
+	
+	if(listkey.includes(apikey)){
+	
+	if (!id) return res.json(loghandler.notid)
+	if (!apikey) return res.json(loghandler.notapikey)
+	
+	let ff = await fetchJson(`https://zenzapis.xyz/stalker/nickff?apikey=sonelstore&query=${id}`)
+	if (!ff.result) return res.json(loghandler.notfound)
+
+	res.json({
+	status: true,
+	creator: `${creator}`,
+	result: ff.result
+	})
+} else {
+  res.json(loghandler.notapikey)
+}
+})
+
+router.get('/stalker/nickml', async (req, res, next) => {
+	var id = req.query.id
+	var zoneid = req.query.zoneid
+	var apikey = req.query.apikey
+	
+	if(listkey.includes(apikey)){
+	
+	if (!id) return res.json(loghandler.notid)
+	if (!zoneid) return res.json(loghandler.notid)
+	if (!apikey) return res.json(loghandler.notapikey)
+	
+	let ml = await fetchJson(`https://zenzapis.xyz/stalker/nickml?apikey=sonelstore&query=${id}&query2=${zoneid}`)
+	if (!ml.result) return res.json(loghandler.notfound)
+
+	res.json({
+	status: true,
+	creator: `${creator}`,
+	result: ml.result
+	})
+} else {
+  res.json(loghandler.notapikey)
+}
+})
+
+router.get('/stalker/nickmla', async (req, res, next) => {
+	var id = req.query.id
+	var zoneid = req.query.zoneid
+	var apikey = req.query.apikey
+	
+	if(listkey.includes(apikey)){
+	
+	if (!id) return res.json(loghandler.notid)
+	if (!zoneid) return res.json(loghandler.notid)
+	if (!apikey) return res.json(loghandler.notapikey)
+	
+	let mla = await fetchJson(`https://zenzapis.xyz/stalker/nickmladventure?apikey=sonelstore&query=${id}&query2=${zoneid}`)
+	if (!mla.result) return res.json(loghandler.notfound)
+
+	res.json({
+	status: true,
+	creator: `${creator}`,
+	result: mla.result
+	})
+} else {
+  res.json(loghandler.notapikey)
+}
+})
+
+router.get('/stalker/nicklokapala', async (req, res, next) => {
+	var id = req.query.id
+	var apikey = req.query.apikey
+	
+	if(listkey.includes(apikey)){
+	
+	if (!id) return res.json(loghandler.notid)
+	if (!apikey) return res.json(loghandler.notapikey)
+	
+	let lp = await fetchJson(`https://zenzapis.xyz/stalker/nicklokapala?apikey=sonelstore&query=${id}`)
+	if (!lp.result) return res.json(loghandler.notfound)
+
+	res.json({
+	status: true,
+	creator: `${creator}`,
+	result: lp.result
+	})
+} else {
+  res.json(loghandler.notapikey)
+}
+})
+
+router.get('/stalker/nickdomino', async (req, res, next) => {
+	var id = req.query.id
+	var apikey = req.query.apikey
+	
+	if(listkey.includes(apikey)){
+	
+	if (!id) return res.json(loghandler.notid)
+	if (!apikey) return res.json(loghandler.notapikey)
+	
+	let dm = await fetchJson(`https://zenzapis.xyz/stalker/nickdomino?apikey=sonelstore&query=${id}`)
+	if (!dm.result) return res.json(loghandler.notfound)
+
+	res.json({
+	status: true,
+	creator: `${creator}`,
+	result: dm.result
+	})
+} else {
+  res.json(loghandler.notapikey)
+}
+})
+
+router.get('/stalker/nickzepeto', async (req, res, next) => {
+	var id = req.query.id
+	var apikey = req.query.apikey
+	
+	if(listkey.includes(apikey)){
+	
+	if (!id) return res.json(loghandler.notid)
+	if (!apikey) return res.json(loghandler.notapikey)
+	
+	let jp = await fetchJson(`https://zenzapis.xyz/stalker/nickzepeto?apikey=sonelstore&query=${id}`)
+	if (!jp.result) return res.json(loghandler.notfound)
+
+	res.json({
+	status: true,
+	creator: `${creator}`,
+	result: jp.result
+	})
+} else {
+  res.json(loghandler.notapikey)
+}
+})
+
+router.get('/stalker/nicksausage', async (req, res, next) => {
+	var id = req.query.id
+	var apikey = req.query.apikey
+	
+	if(listkey.includes(apikey)){
+	
+	if (!id) return res.json(loghandler.notid)
+	if (!apikey) return res.json(loghandler.notapikey)
+	
+	let sg = await fetchJson(`https://zenzapis.xyz/stalker/nicksausage?apikey=sonelstore&query=${id}`)
+	if (!sg.result) return res.json(loghandler.notfound)
+
+	res.json({
+	status: true,
+	creator: `${creator}`,
+	result: sg.result
+	})
+} else {
+  res.json(loghandler.notapikey)
+}
+})
+
+router.get('/stalker/nickaov', async (req, res, next) => {
+	var id = req.query.id
+	var apikey = req.query.apikey
+	
+	if(listkey.includes(apikey)){
+	
+	if (!id) return res.json(loghandler.notid)
+	if (!apikey) return res.json(loghandler.notapikey)
+	
+	let aov = await fetchJson(`https://zenzapis.xyz/stalker/nickaov?apikey=sonelstore&query=${id}`)
+	if (!aov.result) return res.json(loghandler.notfound)
+
+	res.json({
+	status: true,
+	creator: `${creator}`,
+	result: aov.result
+	})
+} else {
+  res.json(loghandler.notapikey)
+}
+})
+
+router.get('/stalker/nickcod', async (req, res, next) => {
+	var id = req.query.id
+	var apikey = req.query.apikey
+	
+	if(listkey.includes(apikey)){
+	
+	if (!id) return res.json(loghandler.notid)
+	if (!apikey) return res.json(loghandler.notapikey)
+	
+	let cod = await fetchJson(`https://zenzapis.xyz/stalker/nickcod?apikey=sonelstore&query=${id}`)
+	if (!cod.result) return res.json(loghandler.notfound)
+
+	res.json({
+	status: true,
+	creator: `${creator}`,
+	result: cod.result
+	})
+} else {
+  res.json(loghandler.notapikey)
+}
+})
+
+router.get('/stalker/nickpb', async (req, res, next) => {
+	var id = req.query.id
+	var apikey = req.query.apikey
+	
+	if(listkey.includes(apikey)){
+	
+	if (!id) return res.json(loghandler.notid)
+	if (!apikey) return res.json(loghandler.notapikey)
+	
+	let pb = await fetchJson(`https://zenzapis.xyz/stalker/nickpb?apikey=sonelstore&query=${id}`)
+	if (!pb.result) return res.json(loghandler.notfound)
+
+	res.json({
+	status: true,
+	creator: `${creator}`,
+	result: pb.result
 	})
 } else {
   res.json(loghandler.notapikey)
@@ -3295,6 +4062,42 @@ router.get('/islamic/asmaulhusna', async (req, res, next) => {
 }
 })
 
+router.get('/islamic/hadist', async (req, res, next) => {
+	var apikey = req.query.apikey
+	if (!apikey) return res.json(loghandler.notapikey)
+	if(listkey.includes(apikey)){
+		
+	let data = await fetchJson(`https://myselfff.herokuapp.com/docs/islamic/hadist`)
+	if (!data.list ) return res.json(loghandler.notfound)
+	
+	res.json({
+	status: true,
+	creator: `${creator}`,
+	result: data.list
+	})
+} else {
+  res.json(loghandler.notapikey)
+}
+})
+
+router.get('/islamic/quran', async (req, res, next) => {
+	var apikey = req.query.apikey
+	if (!apikey) return res.json(loghandler.notapikey)
+	if(listkey.includes(apikey)){
+		
+	let data = await fetchJson(`https://myselfff.herokuapp.com/docs/islamic/quran`)
+	if (!data.list ) return res.json(loghandler.notfound)
+	
+	res.json({
+	status: true,
+	creator: `${creator}`,
+	result: data.list
+	})
+} else {
+  res.json(loghandler.notapikey)
+}
+})
+
 router.get('/islamic/surah', async (req, res, next) => {
 	var text = req.query.text
 	if (!text ) return res.json(loghandler.nottext)
@@ -3347,18 +4150,308 @@ router.get('/islamic/tafsirsurah', async (req, res, next) => {
 }
 })
 
+router.get('/islamic/kisahnabi', async (req, res, next) => {
+	var apikey = req.query.apikey
+	if (!apikey) return res.json(loghandler.notapikey)
+	if(listkey.includes(apikey)){
+		
+	let data = await fetchJson(`https://myselfff.herokuapp.com/docs/islamic/kisahnabi`)
+	if (!data.list ) return res.json(loghandler.notfound)
+	
+	res.json({
+	status: true,
+	creator: `${creator}`,
+	result: data.list
+	})
+} else {
+  res.json(loghandler.notapikey)
+}
+})
+
+// Trending
+router.get('/trending/bekasi', async (req, res, next) => {
+	var apikey = req.query.apikey
+	if (!apikey) return res.json(loghandler.notapikey)
+	if(listkey.includes(apikey)){
+	
+	let data = await fetchJson(`https://myselfff.herokuapp.com/docs/trending/bekasi`)
+	if (!data.result ) return res.json(loghandler.notfound)
+	
+	res.json({
+	status: true,
+	creator: `${creator}`,
+	result: data.result
+	})
+} else {
+  res.json(loghandler.notapikey)
+}
+})
+
+router.get('/trending/depok', async (req, res, next) => {
+	var apikey = req.query.apikey
+	if (!apikey) return res.json(loghandler.notapikey)
+	if(listkey.includes(apikey)){
+	
+	let data = await fetchJson(`https://myselfff.herokuapp.com/docs/trending/depok`)
+	if (!data.result ) return res.json(loghandler.notfound)
+	
+	res.json({
+	status: true,
+	creator: `${creator}`,
+	result: data.result
+	})
+} else {
+  res.json(loghandler.notapikey)
+}
+})
+
+router.get('/trending/pekanbaru', async (req, res, next) => {
+	var apikey = req.query.apikey
+	if (!apikey) return res.json(loghandler.notapikey)
+	if(listkey.includes(apikey)){
+	
+	let data = await fetchJson(`https://myselfff.herokuapp.com/docs/trending/pekanbaru`)
+	if (!data.result ) return res.json(loghandler.notfound)
+	
+	res.json({
+	status: true,
+	creator: `${creator}`,
+	result: data.result
+	})
+} else {
+  res.json(loghandler.notapikey)
+}
+})
+
+router.get('/trending/surabaya', async (req, res, next) => {
+	var apikey = req.query.apikey
+	if (!apikey) return res.json(loghandler.notapikey)
+	if(listkey.includes(apikey)){
+	
+	let data = await fetchJson(`https://myselfff.herokuapp.com/docs/trending/surabaya`)
+	if (!data.result ) return res.json(loghandler.notfound)
+	
+	res.json({
+	status: true,
+	creator: `${creator}`,
+	result: data.result
+	})
+} else {
+  res.json(loghandler.notapikey)
+}
+})
+
+router.get('/trending/makassar', async (req, res, next) => {
+	var apikey = req.query.apikey
+	if (!apikey) return res.json(loghandler.notapikey)
+	if(listkey.includes(apikey)){
+	
+	let data = await fetchJson(`https://myselfff.herokuapp.com/docs/trending/makassar`)
+	if (!data.result ) return res.json(loghandler.notfound)
+	
+	res.json({
+	status: true,
+	creator: `${creator}`,
+	result: data.result
+	})
+} else {
+  res.json(loghandler.notapikey)
+}
+})
+
+router.get('/trending/bandung', async (req, res, next) => {
+	var apikey = req.query.apikey
+	if (!apikey) return res.json(loghandler.notapikey)
+	if(listkey.includes(apikey)){
+	
+	let data = await fetchJson(`https://myselfff.herokuapp.com/docs/trending/bandung`)
+	if (!data.result ) return res.json(loghandler.notfound)
+	
+	res.json({
+	status: true,
+	creator: `${creator}`,
+	result: data.result
+	})
+} else {
+  res.json(loghandler.notapikey)
+}
+})
+
+router.get('/trending/jakarta', async (req, res, next) => {
+	var apikey = req.query.apikey
+	if (!apikey) return res.json(loghandler.notapikey)
+	if(listkey.includes(apikey)){
+	
+	let data = await fetchJson(`https://myselfff.herokuapp.com/docs/trending/jakarta`)
+	if (!data.result ) return res.json(loghandler.notfound)
+	
+	res.json({
+	status: true,
+	creator: `${creator}`,
+	result: data.result
+	})
+} else {
+  res.json(loghandler.notapikey)
+}
+})
+
+router.get('/trending/medan', async (req, res, next) => {
+	var apikey = req.query.apikey
+	if (!apikey) return res.json(loghandler.notapikey)
+	if(listkey.includes(apikey)){
+	
+	let data = await fetchJson(`https://myselfff.herokuapp.com/docs/trending/medan`)
+	if (!data.result ) return res.json(loghandler.notfound)
+	
+	res.json({
+	status: true,
+	creator: `${creator}`,
+	result: data.result
+	})
+} else {
+  res.json(loghandler.notapikey)
+}
+})
+
+router.get('/trending/palembang', async (req, res, next) => {
+	var apikey = req.query.apikey
+	if (!apikey) return res.json(loghandler.notapikey)
+	if(listkey.includes(apikey)){
+	
+	let data = await fetchJson(`https://myselfff.herokuapp.com/docs/trending/palembang`)
+	if (!data.result ) return res.json(loghandler.notfound)
+	
+	res.json({
+	status: true,
+	creator: `${creator}`,
+	result: data.result
+	})
+} else {
+  res.json(loghandler.notapikey)
+}
+})
+
+router.get('/trending/semarang', async (req, res, next) => {
+	var apikey = req.query.apikey
+	if (!apikey) return res.json(loghandler.notapikey)
+	if(listkey.includes(apikey)){
+	
+	let data = await fetchJson(`https://myselfff.herokuapp.com/docs/trending/semarang`)
+	if (!data.result ) return res.json(loghandler.notfound)
+	
+	res.json({
+	status: true,
+	creator: `${creator}`,
+	result: data.result
+	})
+} else {
+  res.json(loghandler.notapikey)
+}
+})
+
+router.get('/trending/tangerang', async (req, res, next) => {
+	var apikey = req.query.apikey
+	if (!apikey) return res.json(loghandler.notapikey)
+	if(listkey.includes(apikey)){
+	
+	let data = await fetchJson(`https://myselfff.herokuapp.com/docs/trending/tangerang`)
+	if (!data.result ) return res.json(loghandler.notfound)
+	
+	res.json({
+	status: true,
+	creator: `${creator}`,
+	result: data.result
+	})
+} else {
+  res.json(loghandler.notapikey)
+}
+})
+
+// News
+router.get('/news/inews', async (req, res, next) => {
+	var apikey = req.query.apikey
+	if (!apikey) return res.json(loghandler.notapikey)
+	if(listkey.includes(apikey)){
+	
+	let data = await fetchJson(`https://myselfff.herokuapp.com/docs/news/berita`)
+	if (!data.result ) return res.json(loghandler.notfound)
+	
+	res.json({
+	status: true,
+	creator: `${creator}`,
+	result: data.result
+	})
+} else {
+  res.json(loghandler.notapikey)
+}
+})
+
+router.get('/news/kompas', async (req, res, next) => {
+	var apikey = req.query.apikey
+	if (!apikey) return res.json(loghandler.notapikey)
+	if(listkey.includes(apikey)){
+	
+	let data = await fetchJson(`https://myselfff.herokuapp.com/docs/news/kompas`)
+	if (!data.result ) return res.json(loghandler.notfound)
+	
+	res.json({
+	status: true,
+	creator: `${creator}`,
+	result: data.result
+	})
+} else {
+  res.json(loghandler.notapikey)
+}
+})
+
+router.get('/news/okezone', async (req, res, next) => {
+	var apikey = req.query.apikey
+	if (!apikey) return res.json(loghandler.notapikey)
+	if(listkey.includes(apikey)){
+	
+	let data = await fetchJson(`https://myselfff.herokuapp.com/docs/news/okezone`)
+	if (!data.result ) return res.json(loghandler.notfound)
+	
+	res.json({
+	status: true,
+	creator: `${creator}`,
+	result: data.result
+	})
+} else {
+  res.json(loghandler.notapikey)
+}
+})
+
+router.get('/news/antara', async (req, res, next) => {
+	var apikey = req.query.apikey
+	if (!apikey) return res.json(loghandler.notapikey)
+	if(listkey.includes(apikey)){
+	
+	let data = await fetchJson(`https://myselfff.herokuapp.com/docs/news/antara`)
+	if (!data.result ) return res.json(loghandler.notfound)
+	
+	res.json({
+	status: true,
+	creator: `${creator}`,
+	result: data.result
+	})
+} else {
+  res.json(loghandler.notapikey)
+}
+})
+
 // Information
 router.get('/information/gempa', async (req, res, next) => {
 	var apikey = req.query.apikey
 	if (!apikey) return res.json(loghandler.notapikey)
 	if(listkey.includes(apikey)){
 	
-	let data = await fetchJson(`https://raw.githubusercontent.com/Danzzxcodes/scraper/main/infogempa.json`)
+	let data = await fetchJson(`https://myselfff.herokuapp.com/docs/random/infogempa`)
 	
 	res.json({
 	status: true,
 	creator: `${creator}`,
-	result: data
+	result: data.result
 	})
 } else {
   res.json(loghandler.notapikey)
@@ -3376,7 +4469,7 @@ router.get('/information/covidworld', async (req, res, next) => {
 	res.json({
 	status: true,
 	creator: `${creator}`,
-	data
+	result: data.result
 	})
 } else {
   res.json(loghandler.notapikey)
@@ -3397,7 +4490,75 @@ router.get('/information/postalcode', async (req, res, next) => {
 	res.json({
 	status: true,
 	creator: `${creator}`,
-	data
+	result: data.result
+	})
+} else {
+  res.json(loghandler.notapikey)
+}
+})
+
+router.get('/information/hoax', async (req, res, next) => {
+	var apikey = req.query.apikey
+	if (!apikey) return res.json(loghandler.notapikey)
+	if(listkey.includes(apikey)){
+	
+	let data = await fetchJson(`https://myselfff.herokuapp.com/docs/information/infohoax`)
+	
+	res.json({
+	status: true,
+	creator: `${creator}`,
+	result: data.result
+	})
+} else {
+  res.json(loghandler.notapikey)
+}
+})
+
+router.get('/information/jadwalbola', async (req, res, next) => {
+	var apikey = req.query.apikey
+	if (!apikey) return res.json(loghandler.notapikey)
+	if(listkey.includes(apikey)){
+	
+	let data = await fetchJson(`https://myselfff.herokuapp.com/docs/information/jadwalbola`)
+	
+	res.json({
+	status: true,
+	creator: `${creator}`,
+	result: data.result
+	})
+} else {
+  res.json(loghandler.notapikey)
+}
+})
+
+router.get('/information/clock', async (req, res, next) => {
+	var apikey = req.query.apikey
+	if (!apikey) return res.json(loghandler.notapikey)
+	if(listkey.includes(apikey)){
+	
+	let data = await fetchJson(`https://myselfff.herokuapp.com/docs/information/jam`)
+	
+	res.json({
+	status: true,
+	creator: `${creator}`,
+	result: data.result
+	})
+} else {
+  res.json(loghandler.notapikey)
+}
+})
+
+router.get('/information/worldclock', async (req, res, next) => {
+	var apikey = req.query.apikey
+	if (!apikey) return res.json(loghandler.notapikey)
+	if(listkey.includes(apikey)){
+	
+	let data = await fetchJson(`https://myselfff.herokuapp.com/docs/information/jamdunia`)
+	
+	res.json({
+	status: true,
+	creator: `${creator}`,
+	result: data.result
 	})
 } else {
   res.json(loghandler.notapikey)
@@ -3405,10 +4566,10 @@ router.get('/information/postalcode', async (req, res, next) => {
 })
 
 router.get('/information/kbbi', async (req, res, next) => {
-	var text = req.query.text
-	if (!text ) return res.json({ status : false, creator : `${creator}`, message : "Enter Text"})
+	var query = req.query.query
+	if (!query ) return res.json(loghandler.notquery)
 	
-	let data = await fetchJson(`https://api-yogipw.herokuapp.com/api/info/kbbi?kata=${text}`)
+	let data = await fetchJson(`https://api-yogipw.herokuapp.com/api/info/kbbi?kata=${query}`)
 	if (!data.result ) return res.json(loghandler.notfound)
 	
 	var apikey = req.query.apikey
@@ -3418,8 +4579,94 @@ router.get('/information/kbbi', async (req, res, next) => {
 	res.json({
 	status: true,
 	creator: `${creator}`,
-	data
+	result: data.result
 	})
+} else {
+  res.json(loghandler.notapikey)
+}
+})
+
+router.get('/information/wikipedia', async (req, res, next) => {
+	var query = req.query.query
+	if (!query ) return res.json(loghandler.notquery)
+	
+	let data = await fetchJson(`https://myselfff.herokuapp.com/docs/random/wikipedia?query=${query}`)
+	if (!data.result ) return res.json(loghandler.notfound)
+	
+	var apikey = req.query.apikey
+	if (!apikey) return res.json(loghandler.notapikey)
+	if(listkey.includes(apikey)){
+	
+	res.json({
+	status: true,
+	creator: `${creator}`,
+	result: data.result
+	})
+} else {
+  res.json(loghandler.notapikey)
+}
+})
+
+// Primbon
+router.get('/primbon/ramalanjodoh', async (req, res, next) => {
+    var date = req.query.date
+    var month = req.query.month
+    var years = req.query.years
+    var apikey = req.query.apikey
+	
+	if(listkey.includes(apikey)){
+	if(!date) return res.json({ status : false, creator : `${creator}`, message : "Enter Date"})
+	if(!month) return res.json({ status : false, creator : `${creator}`, message : "Enter Month"})
+	if(!years) return res.json({ status : false, creator : `${creator}`, message : "Enter Years"})
+	if(!apikey) return res.json(loghandler.notapikey)
+	
+	let data = await fetchJson(`https://api-yogipw.herokuapp.com/api/fun/ramaljadian?tanggal=${date}&bulan=${month}&tahun=${years}`)
+	
+  res.json({
+	status: true,
+	creator: `${creator}`,
+	result: data
+})
+} else {
+  res.json(loghandler.notapikey)
+}
+})
+
+router.get('/primbon/artinama', async (req, res, next) => {
+    var name = req.query.name
+    var apikey = req.query.apikey
+	
+	if(listkey.includes(apikey)){
+	if(!name) return res.json({ status : false, creator : `${creator}`, message : "Enter Name"})
+	if(!apikey) return res.json(loghandler.notapikey)
+	
+	let data = await fetchJson(`http://kocakz.herokuapp.com/api/primbon/artinama?name=${name}`)
+	
+  res.json({
+	status: true,
+	creator: `${creator}`,
+	result: data
+})
+} else {
+  res.json(loghandler.notapikey)
+}
+})
+
+router.get('/primbon/tafsirmimpi', async (req, res, next) => {
+    var dream = req.query.dream
+    var apikey = req.query.apikey
+	
+	if(listkey.includes(apikey)){
+	if(!dream) return res.json({ status : false, creator : `${creator}`, message : "Enter Dream"})
+	if(!apikey) return res.json(loghandler.notapikey)
+	
+	let data = await fetchJson(`http://kocakz.herokuapp.com/api/primbon/tafsirmimpi?mimpi=${dream}`)
+	
+  res.json({
+	status: true,
+	creator: `${creator}`,
+	result: data
+})
 } else {
   res.json(loghandler.notapikey)
 }
