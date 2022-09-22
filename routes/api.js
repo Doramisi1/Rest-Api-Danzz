@@ -732,7 +732,7 @@ router.get('/search/xxxxvideo', async(req, res, next) => {
          	res.json(loghandler.error)
 })
 } else {
-  res.json(loghandler.notapikey)
+  res.json(loghandler.notapikeyprem)
 }
 })
 
@@ -759,7 +759,7 @@ router.get('/search/xnxxvideo', async(req, res, next) => {
          	res.json(loghandler.error)
 })
 } else {
-  res.json(loghandler.notapikey)
+  res.json(loghandler.notapikeyprem)
 }
 })
 
@@ -786,7 +786,7 @@ router.get('/search/pornhub', async(req, res, next) => {
          	res.json(loghandler.error)
 })
 } else {
-  res.json(loghandler.notapikey)
+  res.json(loghandler.notapikeyprem)
 }
 })
 
