@@ -2592,6 +2592,138 @@ router.get('/game/tebakkimia', async (req, res, next) => {
 }
 })
 
+// Simi
+router.get('/fun/simi', async (req, res, next) => {
+        var apikey = req.query.apikey
+        var text = req.query.text
+        var lang = req.query.lang
+   
+		if(!apikey) return res.json(loghandler.notapikey)
+		if(listkey.includes(apikey)){
+        if(!text) return res.json(loghandler.nottext)
+        if(!lang) return res.json({ message: 'Enter Lang' })
+
+       fetch(encodeURI(`https://simsumi.herokuapp.com/api?text=${text}&lang=${lang}`))
+        .then(response => response.json())
+        .then(data => {
+        var result = data;
+             res.json({
+                 status : true,
+                 creator : `${creator}`,
+                 result
+             })
+         })
+         .catch(e => {
+         	res.json(loghandler.error)
+})
+} else {
+res.json(loghandler.notapikey)
+}
+})
+router.get('/fun/simi-en', async (req, res, next) => {
+        var apikey = req.query.apikey
+        var text = req.query.text
+   
+		if(!apikey) return res.json(loghandler.notapikey)
+		if(listkey.includes(apikey)){
+        if(!text) return res.json(loghandler.nottext)
+
+       fetch(encodeURI(`https://simsumi.herokuapp.com/api?text=${text}&lang=en`))
+        .then(response => response.json())
+        .then(data => {
+        var result = data;
+             res.json({
+                 status : true,
+                 creator : `${creator}`,
+                 result
+             })
+         })
+         .catch(e => {
+         	res.json(loghandler.error)
+})
+} else {
+res.json(loghandler.notapikey)
+}
+})
+
+router.get('/fun/simi-jp', async (req, res, next) => {
+        var apikey = req.query.apikey
+        var text = req.query.text
+   
+		if(!apikey) return res.json(loghandler.notapikey)
+		if(listkey.includes(apikey)){
+        if(!text) return res.json(loghandler.nottext)
+
+       fetch(encodeURI(`https://simsumi.herokuapp.com/api?text=${text}&lang=jp`))
+        .then(response => response.json())
+        .then(data => {
+        var result = data;
+             res.json({
+                 status : true,
+                 creator : `${creator}`,
+                 result
+             })
+         })
+         .catch(e => {
+         	res.json(loghandler.error)
+})
+} else {
+res.json(loghandler.notapikey)
+}
+})
+
+router.get('/fun/simi-id', async (req, res, next) => {
+        var apikey = req.query.apikey
+        var text = req.query.text
+   
+		if(!apikey) return res.json(loghandler.notapikey)
+		if(listkey.includes(apikey)){
+        if(!text) return res.json(loghandler.nottext)
+
+       fetch(encodeURI(`https://simsumi.herokuapp.com/api?text=${text}&lang=id`))
+        .then(response => response.json())
+        .then(data => {
+        var result = data;
+             res.json({
+                 status : true,
+                 creator : `${creator}`,
+                 result
+             })
+         })
+         .catch(e => {
+         	res.json(loghandler.error)
+})
+} else {
+res.json(loghandler.notapikey)
+}
+})
+
+router.get('/fun/simi-ar', async (req, res, next) => {
+        var apikey = req.query.apikey
+        var text = req.query.text
+   
+		if(!apikey) return res.json(loghandler.notapikey)
+		if(listkey.includes(apikey)){
+        if(!text) return res.json(loghandler.nottext)
+
+       fetch(encodeURI(`https://simsumi.herokuapp.com/api?text=${text}&lang=ar`))
+        .then(response => response.json())
+        .then(data => {
+        var result = data;
+             res.json({
+                 status : true,
+                 creator : `${creator}`,
+                 result
+             })
+         })
+         .catch(e => {
+         	res.json(loghandler.error)
+})
+} else {
+res.json(loghandler.notapikey)
+}
+})
+
 // Sfw
 router.get('/sfw/waifu', async (req, res, next) => {
 var apikey = req.query.apikey
@@ -3155,6 +3287,29 @@ res.json({ result })
 }
 })
 
+router.get('/random/quotes', async (req, res, next) => {
+        var apikey = req.query.apikey
+            
+		if(!apikey) return res.json(loghandler.notapikey)
+		if(listkey.includes(apikey)){
+
+       fetch(encodeURI(`http://kocakz.herokuapp.com/api/random/text/quotes`))
+        .then(response => response.json())
+        .then(hasil => {
+        var result = hasil.result;
+             res.json({
+                 creator : `${creator}`,
+                 result
+             })
+         })
+         .catch(e => {
+         	res.json(loghandler.error)
+})
+} else {
+res.json(loghandler.notapikey)
+}
+})
+
 router.get('/random/couplepp', async (req, res, next) => {
 	var apikey = req.query.apikey
 	
@@ -3176,7 +3331,6 @@ router.get('/random/couplepp', async (req, res, next) => {
   res.json(loghandler.notapikey)
 }
 })
-
 
 router.get('/random/dadu', async (req, res, next) => {
 	var apikey = req.query.apikey
