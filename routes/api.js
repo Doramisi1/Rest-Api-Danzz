@@ -714,7 +714,7 @@ router.get('/search/xxxxvideo', async(req, res, next) => {
   const apikey = req.query.apikey
   
   if(!query) return res.json(loghandler.notquery)
-  if(!apikey) return res.json(loghandler.notapikey)
+  if(!apikey) return res.json(loghandler.notapikeyprem)
   
   if(listkeyprem.includes(apikey)){
     fetch(encodeURI(`http://kocakz.herokuapp.com/api/media/xvideo/search?query=${query}`))
@@ -741,7 +741,7 @@ router.get('/search/xnxxvideo', async(req, res, next) => {
   const apikey = req.query.apikey
   
   if(!query) return res.json(loghandler.notquery)
-  if(!apikey) return res.json(loghandler.notapikey)
+  if(!apikey) return res.json(loghandler.notapikeyprem)
   
   if(listkeyprem.includes(apikey)){
     fetch(encodeURI(`http://kocakz.herokuapp.com/api/media/xnxx/search?query=${query}`))
@@ -768,7 +768,7 @@ router.get('/search/pornhub', async(req, res, next) => {
   const apikey = req.query.apikey
   
   if(!query) return res.json(loghandler.notquery)
-  if(!apikey) return res.json(loghandler.notapikey)
+  if(!apikey) return res.json(loghandler.notapikeyprem)
   
   if(listkeyprem.includes(apikey)){
     fetch(encodeURI(`http://kocakz.herokuapp.com/api/media/pornhub/search?query=${query}`))
