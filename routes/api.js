@@ -1859,12 +1859,14 @@ router.get('/photooxy/sweet-candy', async (req, res, next) => {
 router.get('/canvas/welcome', async (req, res, next) => {
 
 var name = req.query.name
+var mem = req.query.mem
 var gcname = req.query.gcname
 var picurl = req.query.picurl
 var bgurl = req.query.bgurl
 var apikey = req.query.apikey
 
 if (!name) return res.json({ status : false, creator : `${creator}`, message : "Enter Name"})
+if (!mem) return res.json({ status : false, creator : `${creator}`, message : "Enter Members Amount"})
 if (!gcname) return res.json({ status : false, creator : `${creator}`, message : "Enter Group Name"})
 if (!picurl) return res.json({ status : false, creator : `${creator}`, message : "Enter Pic Url"})
 if (!bgurl) return res.json({ status : false, creator : `${creator}`, message : "Enter Background Url"})
@@ -1872,7 +1874,7 @@ if(!apikey) return res.json(loghandler.notapikey)
 if(listkey.includes(apikey)){
 	
 var requestSettings = {
-url: `https://api-yogipw.herokuapp.com/api/welcome?name=${name}&gcname=${gcname}&picurl=${picurl}&bgurl=${bgurl}`, method: 'GET', encoding: null };
+url: `https://api-yogipw.herokuapp.com/api/welcome?name=${name}&mem=${mem}&gcname=${gcname}&picurl=${picurl}&bgurl=${bgurl}`, method: 'GET', encoding: null };
 request(requestSettings, function(error, response, body) {
 res.set('Content-Type', 'image/png');
 res.send(body)
@@ -1915,12 +1917,14 @@ res.send(body)
 router.get('/canvas/goodbye', async (req, res, next) => {
 
 var name = req.query.name
+var mem = req.query.mem
 var gcname = req.query.gcname
 var picurl = req.query.picurl
 var bgurl = req.query.bgurl
 var apikey = req.query.apikey
 
 if (!name) return res.json({ status : false, creator : `${creator}`, message : "Enter Name"})
+if (!mem) return res.json({ status : false, creator : `${creator}`, message : "Enter Members Amount"})
 if (!gcname) return res.json({ status : false, creator : `${creator}`, message : "Enter Group Name"})
 if (!picurl) return res.json({ status : false, creator : `${creator}`, message : "Enter Pic Url"})
 if (!bgurl) return res.json({ status : false, creator : `${creator}`, message : "Enter Background Url"})
@@ -1928,7 +1932,7 @@ if(!apikey) return res.json(loghandler.notapikey)
 if(listkey.includes(apikey)){
 	
 var requestSettings = {
-url: `https://api-yogipw.herokuapp.com/api/goodbye?name=${name}&gcname=${gcname}&picurl=${picurl}&bgurl=${bgurl}`, method: 'GET', encoding: null };
+url: `https://api-yogipw.herokuapp.com/api/goodbye?name=${name}&mem${mem}&gcname=${gcname}&picurl=${picurl}&bgurl=${bgurl}`, method: 'GET', encoding: null };
 request(requestSettings, function(error, response, body) {
 res.set('Content-Type', 'image/png');
 res.send(body)
