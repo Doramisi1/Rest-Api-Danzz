@@ -96,7 +96,7 @@ router.get('/', (req, res) => {
     res.sendFile(__path + '/views/home.html')
 })
 
-router.get('/docs', (req, res) => {
+router.get('/dash', (req, res) => {
     res.sendFile(__path + '/views/dashboard.html')
 })
 
