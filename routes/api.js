@@ -710,8 +710,8 @@ router.get('/search/youtube', async (req, res, next) => {
 })
 
 router.get('/search/xxxxvideo', async(req, res, next) => {
-  const query = req.query.query
-  const apikey = req.query.apikey
+  var query = req.query.query
+  var apikey = req.query.apikey
   
   if(!query) return res.json(loghandler.notquery)
   if(!apikey) return res.json(loghandler.notapikeyprem)
@@ -737,8 +737,8 @@ router.get('/search/xxxxvideo', async(req, res, next) => {
 })
 
 router.get('/search/xnxxvideo', async(req, res, next) => {
-  const query = req.query.query
-  const apikey = req.query.apikey
+  var query = req.query.query
+  var apikey = req.query.apikey
   
   if(!query) return res.json(loghandler.notquery)
   if(!apikey) return res.json(loghandler.notapikeyprem)
@@ -764,8 +764,8 @@ router.get('/search/xnxxvideo', async(req, res, next) => {
 })
 
 router.get('/search/pornhub', async(req, res, next) => {  
-  const query = req.query.query
-  const apikey = req.query.apikey
+  var query = req.query.query
+  var apikey = req.query.apikey
   
   if(!query) return res.json(loghandler.notquery)
   if(!apikey) return res.json(loghandler.notapikeyprem)
@@ -787,6 +787,32 @@ router.get('/search/pornhub', async(req, res, next) => {
 })
 } else {
   res.json(loghandler.notapikeyprem)
+}
+})
+
+router.get('/search/wikimedia', async (req, res, next) => {
+	var query = req.query.query
+	var apikey = req.query.apikey
+  
+	if(!query) return res.json(loghandler.notquery)
+	if(!apikey) return res.json(loghandler.notapikey)
+	
+	if(listkey.includes(apikey)){
+	danzz.wikimedia(query)
+	.then((data) =>{ 
+	if (!data[0] ) return res.json(loghandler.notfound)
+	res.json({
+	status: true,
+	creator: `${creator}`,
+	result: data
+})
+})
+.catch((err) =>{
+ res.json(loghandler.notfound)
+
+})
+} else {
+  res.json(loghandler.notapikey)
 }
 })
 
@@ -1831,14 +1857,13 @@ router.get('/photooxy/sweet-candy', async (req, res, next) => {
 
 // Canvas
 router.get('/canvas/welcome', async (req, res, next) => {
-var url = req.query.url
+
 var name = req.query.name
 var gcname = req.query.gcname
 var picurl = req.query.picurl
 var bgurl = req.query.bgurl
 var apikey = req.query.apikey
 
-if (!url) return res.json(loghandler.noturl) 
 if (!name) return res.json({ status : false, creator : `${creator}`, message : "Enter Name"})
 if (!gcname) return res.json({ status : false, creator : `${creator}`, message : "Enter Group Name"})
 if (!picurl) return res.json({ status : false, creator : `${creator}`, message : "Enter Pic Url"})
@@ -1858,7 +1883,7 @@ res.send(body)
 })
 
 router.get('/canvas/welcome2', async (req, res, next) => {
-var url = req.query.url
+
 var name = req.query.name
 var mem = req.query.mem
 var gcname = req.query.gcname
@@ -1867,7 +1892,6 @@ var bgurl = req.query.bgurl
 var gcicon = req.query.gcicon
 var apikey = req.query.apikey
 
-if (!url) return res.json(loghandler.noturl) 
 if (!name) return res.json({ status : false, creator : `${creator}`, message : "Enter Name"})
 if (!mem) return res.json({ status : false, creator : `${creator}`, message : "Enter Members Amount"})
 if (!gcname) return res.json({ status : false, creator : `${creator}`, message : "Enter Group Name"})
@@ -1889,14 +1913,13 @@ res.send(body)
 })
 
 router.get('/canvas/goodbye', async (req, res, next) => {
-var url = req.query.url
+
 var name = req.query.name
 var gcname = req.query.gcname
 var picurl = req.query.picurl
 var bgurl = req.query.bgurl
 var apikey = req.query.apikey
 
-if (!url) return res.json(loghandler.noturl) 
 if (!name) return res.json({ status : false, creator : `${creator}`, message : "Enter Name"})
 if (!gcname) return res.json({ status : false, creator : `${creator}`, message : "Enter Group Name"})
 if (!picurl) return res.json({ status : false, creator : `${creator}`, message : "Enter Pic Url"})
@@ -1916,7 +1939,7 @@ res.send(body)
 })
 
 router.get('/canvas/goodbye2', async (req, res, next) => {
-var url = req.query.url
+
 var name = req.query.name
 var mem = req.query.mem
 var gcname = req.query.gcname
@@ -1925,7 +1948,6 @@ var bgurl = req.query.bgurl
 var gcicon = req.query.gcicon
 var apikey = req.query.apikey
 
-if (!url) return res.json(loghandler.noturl) 
 if (!name) return res.json({ status : false, creator : `${creator}`, message : "Enter Name"})
 if (!mem) return res.json({ status : false, creator : `${creator}`, message : "Enter Members Amount"})
 if (!gcname) return res.json({ status : false, creator : `${creator}`, message : "Enter Group Name"})
@@ -1937,6 +1959,66 @@ if(listkey.includes(apikey)){
 	
 var requestSettings = {
 url: `https://api-yogipw.herokuapp.com/api/goodbye2?name=${name}&mem=${mem}&gcname=${gcname}&picurl=${picurl}&bgurl=${bgurl}&gcicon=${gcicon}`, method: 'GET', encoding: null };
+request(requestSettings, function(error, response, body) {
+res.set('Content-Type', 'image/png');
+res.send(body)
+})
+} else {
+  res.json(loghandler.notapikey)
+}
+})
+
+router.get('/canvas/verify', async (req, res, next) => {
+
+var name = req.query.name
+var mem = req.query.mem
+var sn = req.query.sn
+var pp = req.query.pp
+var bg = req.query.bg
+var apikey = req.query.apikey
+
+if (!name) return res.json({ status : false, creator : `${creator}`, message : "Enter Name"})
+if (!mem) return res.json({ status : false, creator : `${creator}`, message : "Enter Members Amount"})
+if (!sn) return res.json({ status : false, creator : `${creator}`, message : "Enter Seri"})
+if (!pp) return res.json({ status : false, creator : `${creator}`, message : "Enter Pp Url"})
+if (!bg) return res.json({ status : false, creator : `${creator}`, message : "Enter Background Url"})
+
+if(!apikey) return res.json(loghandler.notapikey)
+if(listkey.includes(apikey)){
+	
+var requestSettings = {
+url: `https://hadi-api.herokuapp.com/api/card/verify?nama=${name}&member=${mem}&seri=${sn}&pp=${pp}&bg=${bg}`, method: 'GET', encoding: null };
+request(requestSettings, function(error, response, body) {
+res.set('Content-Type', 'image/png');
+res.send(body)
+})
+} else {
+  res.json(loghandler.notapikey)
+}
+})
+
+router.get('/canvas/verify2', async (req, res, next) => {
+
+var name = req.query.name
+var name2 = req.query.name2
+var nameverify = req.query.nameverify
+var pp = req.query.pp
+var pp2 = req.query.pp2
+var bg = req.query.bg
+var apikey = req.query.apikey
+
+if (!name) return res.json({ status : false, creator : `${creator}`, message : "Enter Name"})
+if (!name2) return res.json({ status : false, creator : `${creator}`, message : "Enter Name2"})
+if (!nameverify) return res.json({ status : false, creator : `${creator}`, message : "Enter Verify Name"})
+if (!pp) return res.json({ status : false, creator : `${creator}`, message : "Enter Pp Url"})
+if (!pp2) return res.json({ status : false, creator : `${creator}`, message : "Enter Pp2 Url"})
+if (!bg) return res.json({ status : false, creator : `${creator}`, message : "Enter Background Url"})
+
+if(!apikey) return res.json(loghandler.notapikey)
+if(listkey.includes(apikey)){
+	
+var requestSettings = {
+url: `https://hadi-api.herokuapp.com/api/card/verify2?name=${name}&memverify=${nameverify}&gcname=${name2}&gcicon=${pp}&pp=${pp2}&bg=${bg}`, method: 'GET', encoding: null };
 request(requestSettings, function(error, response, body) {
 res.set('Content-Type', 'image/png');
 res.send(body)
@@ -2032,6 +2114,25 @@ if(listkey.includes(apikey)){
 	
 var requestSettings = {
 url: `https://myselfff.herokuapp.com/docs/canvas/oogway?text=${text}`, method: 'GET', encoding: null };
+request(requestSettings, function(error, response, body) {
+res.set('Content-Type', 'image/png');
+res.send(body)
+})
+} else {
+  res.json(loghandler.notapikey)
+}
+})
+
+router.get('/canvas/wanted', async (req, res, next) => {
+var url = req.query.url
+var apikey = req.query.apikey
+
+if (!url) return res.json(loghandler.noturl)
+if(!apikey) return res.json(loghandler.notapikey)
+if(listkey.includes(apikey)){
+	
+var requestSettings = {
+url: `https://hadi-api.herokuapp.com/api/canvas/wanted?url=${url}`, method: 'GET', encoding: null };
 request(requestSettings, function(error, response, body) {
 res.set('Content-Type', 'image/png');
 res.send(body)
@@ -2173,6 +2274,77 @@ res.send(body)
   res.json(loghandler.notapikey)
 }
 })
+
+// Maker
+router.get('/maker/ttp', async(req, res, next) => {
+
+  const text = req.query.text
+  const apikey = req.query.apikey
+  
+  if(!text) return res.json(loghandler.nottext)
+  if(!apikey) return res.json(loghandler.notapikey)
+  
+  if(listkey.includes(apikey)) {
+  let result = `https://hadi-api.herokuapp.com/api/canvas/ttp?text=${text}`
+  data = await fetch(result).then(v => v.buffer())
+  await fs.writeFileSync(__path +'/tmp/ttp.png', data)
+  res.sendFile(__path +'/tmp/ttp.png')
+  } else {
+    res.json(loghandler.notapikey)
+  }
+})
+
+router.get('/maker/attp', async(req, res, next) => {
+
+  const text = req.query.text
+  const apikey = req.query.apikey
+  
+  if(!text) return res.json(loghandler.nottext)
+  if(!apikey) return res.json(loghandler.notapikey)
+  
+  if(listkey.includes(apikey)) {
+  let result = `https://hadi-api.herokuapp.com/api/canvas/attp?text=${text}`
+  data = await fetch(result).then(v => v.buffer())
+  await fs.writeFileSync(__path +'/tmp/attp.gif', data)
+  res.sendFile(__path +'/tmp/attp.gif')
+  } else {
+    res.json(loghandler.notapikey)
+  }
+})
+
+router.get('/maker/nulis', async(req, res, next) => {
+  const text = req.query.text
+  const apikey = req.query.apikey
+  
+  if(!text) return res.json(loghandler.nottext)
+  if(!apikey) return res.json(loghandler.notapikey)
+  
+  if(listkey.includes(apikey)) {
+  let result = `https://hadi-api.herokuapp.com/api/canvas/nulis?text=${text}`
+  data = await fetch(result).then(v => v.buffer())
+  await fs.writeFileSync(__path +'/tmp/nulis.png', data)
+  res.sendFile(__path +'/tmp/nulis.png')
+  } else {
+    res.json(loghandler.notapikey)
+  }
+});
+
+router.get('/maker/nulis2', async(req, res, next) => {
+  const text = req.query.text
+  const apikey = req.query.apikey
+  
+  if(!text) return res.json(loghandler.nottext)
+  if(!apikey) return res.json(loghandler.notapikey)
+  
+  if(listkey.includes(apikey)) {
+  let result = `https://hadi-api.herokuapp.com/api/canvas/nulis2?text=${text}`
+  data = await fetch(result).then(v => v.buffer())
+  await fs.writeFileSync(__path +'/tmp/nulis.png', data)
+  res.sendFile(__path +'/tmp/nulis.png')
+  } else {
+    res.json(loghandler.notapikey)
+  }
+});
 
 // Wallpaper
 router.get('/wallpaper/random', async (req, res, next) => {
