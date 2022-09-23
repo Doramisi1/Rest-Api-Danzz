@@ -1932,7 +1932,7 @@ if(!apikey) return res.json(loghandler.notapikey)
 if(listkey.includes(apikey)){
 	
 var requestSettings = {
-url: `https://api-yogipw.herokuapp.com/api/goodbye?name=${name}&mem${mem}&gcname=${gcname}&picurl=${picurl}&bgurl=${bgurl}`, method: 'GET', encoding: null };
+url: `https://api-yogipw.herokuapp.com/api/goodbye?name=${name}&mem=${mem}&gcname=${gcname}&picurl=${picurl}&bgurl=${bgurl}`, method: 'GET', encoding: null };
 request(requestSettings, function(error, response, body) {
 res.set('Content-Type', 'image/png');
 res.send(body)
