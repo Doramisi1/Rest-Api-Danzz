@@ -51,14 +51,17 @@ File Setting [`set.js`](https://github.com/Danzzxcodes/danzz-api/edit/main/set.j
 | Text Pro  |✔️|
 | Photo Oxy  |✔️|
 | Canvas  |✔️|
+| Maker  |✔️|
 | Game  |✔️|
 | Sfw  |✔️|
 | Nsfw  |✔️|
 | Random  |✔️|
-| Stalk |✔️|
+| Stalker |✔️|
 | Short Link  |✔️|
+| Trending  |✔️|
 | Islamic  |✔️|
 | Information  |✔️|
+| News  |✔️|
 | Tools  |✔️|
 
 ## Created By
