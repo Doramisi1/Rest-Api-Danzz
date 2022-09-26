@@ -20,7 +20,7 @@ $.getJSON("https://api.countapi.xyz/hit/danzz-api.herokuapp.com/userlogin", func
 })
 
 // Request Today
-$.getJSON("https://api.countapi.xyz/hit/danzz-api.herokuapp.com/requesttoday", function(response) {
+$.getJSON("https://api.countapi.xyz/hit/danzz-api.herokuapp.com/requesttoday1", function(response) {
     $("#requesttoday").text(response.value);
 })
 
