@@ -3,7 +3,7 @@
 */
 
 // Name Creator
-creator = 'Danzz Coding'
+creator = 'Ghost Coding'
 
 // Random Key
 randomapikeys = ["9286c1a775","9267ic6a0f1","927j59de9c","921n567ea6","921h5a4282","925n2c494","928b0323c9","927b0k3hp7o2","925b04ib0j","023l1qhbpk","92b1a0h7ts","92a70b789c","9291a7bk0p1","92a7o8pe9c","92y1a7l0a6","9221a7i9h2","921a7k3n94","92a0kk2bc9","921a7l9pho2","92a2n1kb0j","92b0a75k6f","92u1a7pr8s"];
@@ -27,88 +27,88 @@ loghandler = {
         status: false,
         code: 503,
         message: 'Error, Service Unavaible',
-        maintanied_by: 'Danzz Coding'
+        maintanied_by: 'Ghost Coding'
     },
     noturl: {
     	status: false,
     	code: 403,
     	message: 'Error, Invlid Url',
-    	maintanied_by: 'Danzz Coding'
+    	maintanied_by: 'Ghost Coding'
     },
     nottext: {
     	status: false,
     	code: 403,
     	message: 'Error, Invlid Text',
-    	maintanied_by: 'Danzz Coding'
+    	maintanied_by: 'Ghost Coding'
     },
     nottext1: {
     	status: false,
     	code: 403,
     	message: 'Error, Invlid Text 1',
-    	maintanied_by: 'Danzz Coding'
+    	maintanied_by: 'Ghost Coding'
     },
     nottext2: {
     	status: false,
     	code: 403,
     	message: 'Error, Invlid Text 2',
-    	maintanied_by: 'Danzz Coding'
+    	maintanied_by: 'Ghost Coding'
     },
     notnum: {
     	status: false,
     	message: 'Enter Num',
-    	maintanied_by: 'Danzz Coding'
+    	maintanied_by: 'Ghost Coding'
     },
     notpage: {
     	status: false,
     	message: 'Enter Page',
-    	maintanied_by: 'Danzz Coding'
+    	maintanied_by: 'Ghost Coding'
     },
     notmoji1: {
     	status: false,
     	code: 403,
     	message: 'Error, Invlid Emoji 1',
-    	maintanied_by: 'Danzz Coding'
+    	maintanied_by: 'Ghost Coding'
     },
     notmoji2: {
     	status: false,
     	code: 403,
     	message: 'Error, Invlid Emoji 2',
-    	maintanied_by: 'Danzz Coding'
+    	maintanied_by: 'Ghost Coding'
     },
     notquery: {
     	status: false,
     	code: 403,
     	message: 'Error, Invlid Query',
-    	maintanied_by: 'Danzz Coding'
+    	maintanied_by: 'Ghost Coding'
     },
     notapikey: {
     	status: false,
     	code: 403,
     	message: 'Error, Invalid Apikey, Please Check The Apikey In docs',
-    	maintanied_by: 'Danzz Coding'
+    	maintanied_by: 'Ghost Coding'
     },
     notapikeyprem: {
     	status: false,
     	code: 403,
     	message: 'Error, Invalid Apikey, You Are Not A Premium User, Buy In Pricing',
-    	maintanied_by: 'Danzz Coding'
+    	maintanied_by: 'Ghost Coding'
     },
     notfound: {
     	status: false,
     	code: 404,
     	message: 'Error, Not Found',
-    	maintanied_by: 'Danzz Coding'
+    	maintanied_by: 'Ghost Coding'
     },
     notid: {
     	status: false,
     	code: 404,
     	message: 'Error, Invalid Id or Username',
-    	maintanied_by: 'Danzz Coding'
+    	maintanied_by: 'Ghost Coding'
     },
     ready: {
     	status: false,
     	code: 403,
     	message: 'Error, ​​Already In Use',
-    	maintanied_by: 'Danzz Coding'
+    	maintanied_by: 'Ghost Coding'
     }
 }
